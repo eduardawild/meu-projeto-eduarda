@@ -1,0 +1,232 @@
+import java.util.Scanner;
+    import javax.swing.JOptionPane;
+public class Cinema {
+
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner (System.in);
+        Filme f = new Filme();
+        Ator a = new Ator ();
+        
+        String nome, duracao, classificacao, genero, ator, idade, atores, datanasc, cachefilme, nacionalidade, vencoscar,
+        totalfilmes, filmeultimo;
+      
+        //nome = JOptionPane.showInputDialog("Nome do filme:");
+        //f.atribuirNome(nome);
+        
+        //duracao = JOptionPane.showInputDialog("Duracao do filme:");
+        //f.atribuirDuracao(duracao);
+        
+        //classificacao = JOptionPane.showInputDialog("Classificacao do filme:");
+        //f.atribuirClassificacao(classificacao);
+        
+        //genero = JOptionPane.showInputDialog("Genero do filme:");
+        //f.atribuirGenero(genero);
+        
+        //ator = JOptionPane.showInputDialog("Ator do filme:");
+        //f.atribuirAtor(ator);
+        
+        //idade = JOptionPane.showInputDialog("Sua idade:");
+        //f.atribuirIdade(idade);
+        
+        //JOptionPane.showMessageDialog(null, "Dados do filme: "
+                //+ "\n Nome: " + f.retornarNome()+ "\n Duracao: "+ f.retornarDuracao()+
+                //"\n Classificacao: " + f.retornarClassificacao() + "\n Genero: " +
+                //f.retornarGenero() + "\n Ator: " + f.retornarAtor() + "\n Idade: " + 
+                //f.retornarIdade());
+        
+        atores = JOptionPane.showInputDialog("Informe o ator: ");
+        a.atribuirAtores(atores);
+        
+        datanasc = JOptionPane.showInputDialog("Informe a data de nascimento do ator: ");
+        a.atribuirDatanasc(datanasc);
+        
+        cachefilme = JOptionPane.showInputDialog("Informe o cache por filme: ");
+        a.atribuirCache(Float.parseFloat(cachefilme));
+        
+        nacionalidade = JOptionPane.showInputDialog ("Informe a nacionalidade: ");
+        a.atribuirNacionalidade(nacionalidade);
+        
+        vencoscar = JOptionPane.showInputDialog("Ele é vencedor do oscar? Responda com 'sim' ou 'nao': ");
+        if(vencoscar.equals("sim")==true)
+            a.atribuirVencOscar(true);
+        else 
+            a.atribuirVencOscar(false);
+        
+        totalfilmes = JOptionPane.showInputDialog("Informe o total de filmes realizados por ele: ");
+        a.atribuirTotalFilmes(Integer.parseInt(totalfilmes));
+        
+        filmeultimo = JOptionPane.showInputDialog("Informe quantos filmes foram realizados no último ano: ");
+        a.atribuirFilmeUltimo(Integer.parseInt(filmeultimo));
+        
+        if(a.retornarVencOscar()== true)
+            vencoscar = "SIM";
+        else
+            vencoscar = "NAO";
+        
+        JOptionPane.showMessageDialog(null, "Dados do filme: \n Nome do Ator: " + a.retornaAtores() + "\n Data de nascimento: "
+        + a.retornarDatanasc() + "\n Cache por filme: " + a.retornarCache() + "\n Nacionalidade: " + a.retornarNacionalidade()+
+                "\n Vencedor do Oscar: " + vencoscar + "\n Total de filmes: " + a.retornarTotalFilmes() + 
+                "\n Filmes realizados no ultimo ano: " + a.retornarFilmeUltimo() + "\n Ganhos do ator no último ano: " + 
+                a.retornarGanhos());
+    }
+    
+}
+
+
+
+=============================================================================================================================================
+
+
+String nome;
+        String duracao;
+        String classificacao;
+        String genero;
+        String ator;
+        String idade;
+        
+        void atribuirNome (String valor)
+        {
+            nome = valor;
+        }
+        
+        String retornarNome ()
+        {
+            return nome;
+        }
+        
+        void atribuirDuracao (String valor)
+        {
+            duracao = valor;
+        }
+        
+        String retornarDuracao ()
+        {
+            return duracao;
+        }
+        
+        void atribuirClassificacao (String valor)
+        {
+            classificacao = valor;
+        }
+        
+        String retornarClassificacao ()
+        {
+            return classificacao;
+        }
+        
+        void atribuirGenero (String valor)
+        {
+            genero = valor;
+        }
+        
+        String retornarGenero ()
+        {
+            return genero;
+        }
+        
+        void atribuirAtor (String valor)
+        {
+            ator = valor;
+        }
+        
+        String retornarAtor ()
+        {
+            return ator;
+        }
+        
+        void atribuirIdade (String valor)
+        {
+            idade = valor;
+        }
+        
+        boolean retornarIdade ()
+        {
+            
+            if (Integer.parseInt(idade)< Integer.parseInt(classificacao))
+                return false;
+            else
+                return true;
+        }
+
+
+==============================================================================================================================
+
+String atores, datanasc, nacionalidade;
+    Float cachefilme;
+    Boolean vencoscar; 
+    Integer totalfilmes, filmeultimo;
+    
+    void atribuirAtores (String valor)
+    {
+        atores = valor;
+    }
+    
+    String retornaAtores ()
+    {
+        return atores;
+    }
+    
+    void atribuirDatanasc (String valor)
+    {
+        datanasc = valor;
+    }
+    
+    String retornarDatanasc ()
+    {
+        return datanasc;
+    }
+    
+    void atribuirCache (Float valor)
+    {
+        cachefilme = valor; 
+    }
+    
+    Float retornarCache ()
+    {
+        return cachefilme;
+    }
+    
+    void atribuirNacionalidade (String valor)
+    {
+        nacionalidade = valor;
+    }
+    
+    String retornarNacionalidade ()
+    {
+        return nacionalidade;
+    }
+    
+    void atribuirVencOscar (Boolean valor)
+    {
+        vencoscar = valor;
+    }
+    
+    boolean retornarVencOscar ()
+    {   
+        return vencoscar; 
+    }
+    
+    void atribuirTotalFilmes (Integer valor)
+    {
+        totalfilmes = valor;
+    }
+    
+    Integer retornarTotalFilmes ()
+    {
+        return totalfilmes;
+    }
+    
+    void atribuirFilmeUltimo (Integer valor)
+    {
+        filmeultimo = valor;
+    }
+    
+    Integer retornarFilmeUltimo ()
+    {
+        return filmeultimo;
+    }
+    
+    Float retornarGanhos ()
+    {
+        return (filmeultimo * cachefilme);
+    }
