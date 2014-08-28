@@ -1,0 +1,55 @@
+CALCULADORA
+
+Calculadoraa calc = new Calculadoraa();
+        
+        Integer resultado;
+        
+        calc.atribuirA(8);
+        calc.atribuirB(2);
+
+        resultado = calc.soma();      
+        System.out.println ("Soma: " + resultado);
+        
+        resultado = calc.subt();
+        System.out.println ("Subtração: " + resultado);
+        
+        resultado = calc.mult();
+        System.out.println ("Multiplicação: " + resultado);
+        
+        resultado = calc.div();
+        System.out.println ("Divisão: " + resultado);
+
+=======================================================================================
+
+Integer a;
+    Integer b;
+    
+    void atribuirA (Integer valor)
+    {
+        a = valor;
+    }
+    
+    void atribuirB (Integer valor)
+    {
+        b = valor;
+    }
+    
+    Integer soma ()
+    {
+        return a+b;
+    }
+    
+    Integer subt ()
+    {
+        return a-b;
+    }
+    
+    Integer mult ()
+    {
+        return a*b;
+    }
+    
+    Integer div ()
+    {
+        return a/b;
+    }
