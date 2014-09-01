@@ -76,7 +76,7 @@ public class CaixaEletronico {
         }
                 
         JOptionPane.showMessageDialog(null,"DADOS DO CLIENTE: \n"
-                + "Nome: " + cl.getNome() + "\nCpf: " + cl.getCpf()
+                + "Nome: " + cl.getNome() + "\n Cpf: " + cl.getCpf()
         + "\nData de nascimento: " + cl.getDatanasc() + "\nEndereco: " + cl.getEndereco()
         + "\nNegativo no spc?: " + spc + "\nNegativo no serasa?: " + serasa);
     }
