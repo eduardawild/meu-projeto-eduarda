@@ -87,13 +87,23 @@ public class CaixaEletronico {
         numero = JOptionPane.showInputDialog("Informe o numero:");
         b.setNumero(numero);
         
-        empimovel = JOptionPane.showInputDialog("Oferece empréstimo imovel? (SIM ou NAO):");
+        empimovel = "";
+        while (!empimovel.equals("SIM") && !empimovel.equals("NAO"))
+        {
+            empimovel = JOptionPane.showInputDialog("Oferece empréstimo imovel? (SIM ou NAO):");
+        }
+        
         if (empimovel.equals("SIM") == true)
             b.atribuirEmpImovel(true);
         else
             b.atribuirEmpImovel(false);
-        
-        empcarro = JOptionPane.showInputDialog("Oferece empréstimo carro? (SIM ou NAO):");
+           
+        empcarro = "";
+        while (!empcarro.equals("SIM") && !empcarro.equals("NAO"))
+        {
+            empcarro = JOptionPane.showInputDialog("Oferece empréstimo carro? (SIM ou NAO):");
+        }
+               
         if (empcarro.equals("SIM") == true)
             b.atribuirEmpCarro(true);
         else
