@@ -25,8 +25,10 @@ public class Hotel {
         anofund = JOptionPane.showInputDialog("Ano da fundacao:");
         h.atribuirAnofund(Integer.parseInt(anofund));
         
-        JOptionPane.showMessageDialog(null,"Valor da hospedagem em dolar: " + h.retornaDolar() +
-                "\nValor da hospedagem em euro: " + h.retornaEuro());
+        JOptionPane.showMessageDialog(null,"Nome: " + h.retornaNome() + "\nLocalizacao: " + h.retornaLocalizacao()
+                + "\nValor da diaria: " + h.retornaDiaria() + "\nDias de hospedagem: " + h.retornaDias() + "\nTelefone: " + h.retornaTelefone() +
+                "\nAno da fundacao: " + h.retornaAnofund() + "\nValor da hospedagem em dolar: " + h.retornaDolar() 
+                + "\nValor da hospedagem em euro: " + h.retornaEuro());
     }
     
 }

@@ -60,6 +60,11 @@ public class HotelInf {
         dias = valor;
     }
     
+    Integer retornaDias ()
+    {
+        return dias;
+    }
+    
     void valorTarifa ()
     {
         if (dias <= 6)
