@@ -3,7 +3,7 @@ CAIXA ELETRONICO
 Conta c = new Conta();
         Cliente cl = new Cliente();
         
-        String nome, numero, agencia, deposito, saque, cpf, datanasc, endereco, spc, serasa;
+        String nome, numero, agencia, deposito, saque, cpf, datanasc, endereco, spc, serasa, nomebanco, numbanco, empimovel, empcarro;
         Boolean deucerto;
         
         /*JOptionPane.showMessageDialog(null,"ABERTURA DE CONTA");
@@ -77,7 +77,38 @@ Conta c = new Conta();
         + "\nData de nascimento: " + cl.getDatanasc() + "\nEndereco: " + cl.getEndereco()
         + "\nNegativo no spc?: " + spc + "\nNegativo no serasa?: " + serasa);
 
-
+	
+	nome = JOptionPane.showInputDialog("Informe o nome do banco:");
+        b.setNome(nome);
+        
+        numero = JOptionPane.showInputDialog("Informe o numero:");
+        b.setNumero(numero);
+        
+        empimovel = JOptionPane.showInputDialog("Oferece empréstimo imovel? (SIM ou NAO):");
+        if (empimovel.equals("SIM") == true)
+            b.atribuirEmpImovel(true);
+        else
+            b.atribuirEmpImovel(false);
+        
+        empcarro = JOptionPane.showInputDialog("Oferece empréstimo carro? (SIM ou NAO):");
+        if (empcarro.equals("SIM") == true)
+            b.atribuirEmpCarro(true);
+        else
+            b.atribuirEmpCarro(false);
+        
+        if (b.retornaEmpImovel() == true)
+            empimovel = "SIM";
+        else
+            empimovel = "NAO";
+        
+        if (b.retornaEmpCarro() == true)
+            empcarro = "SIM";
+        else
+            empcarro = "NAO";
+            
+        JOptionPane.showMessageDialog(null,"DADOS DO BANCO: \n"
+                + "Nome: " + b.getNome()+ "\n Numero: " + b.getNumero()
+        + "\nEmprestimo de Imovel: " + empimovel + "\nEmprestimo de Carro: " + empcarro);
 ============================================================================================================================================
 
 private String agencia, numeroconta, nomecorrentista;
