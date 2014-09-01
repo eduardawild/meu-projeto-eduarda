@@ -110,7 +110,7 @@ public class CaixaEletronico {
             empcarro = "NAO";
             
         JOptionPane.showMessageDialog(null,"DADOS DO BANCO: \n"
-                + "Nome: " + b.getNome()+ "\n Numero: " + b.getNumero()
+                + "Nome: " + b.getNome()+ "\nNumero: " + b.getNumero()
         + "\nEmprestimo de Imovel: " + empimovel + "\nEmprestimo de Carro: " + empcarro);
     }
     
