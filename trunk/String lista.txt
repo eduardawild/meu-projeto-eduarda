@@ -1,0 +1,55 @@
+size() = encontra quantas posições têm na lista
+jogadores.get(i) = mostra o jogador daquela posição    
+
+
+    import java.util.ArrayList;
+    import java.util.List;
+
+List<String> jogadores = new ArrayList<String>();
+        
+        jogadores.add("Kaka");
+        jogadores.add("Robinho");
+        jogadores.add("Vampeta");
+        jogadores.add("Caça Rato");
+        jogadores.add("Perdigão");
+        jogadores.add("Sotilli");
+        jogadores.remove(2);
+        
+        for (int i = 0; i < jogadores.size(); i++) 
+        {
+            System.out.println (jogadores.get(i).toUpperCase());
+        }
+
+OUUU
+
+	for (String jog : jogadores)  //Pega cada elemento da lista, coloca na variavel jog e mostra na tela
+        {
+            System.out.println("jog");
+        }
+
+
+==============================================================================================================
+
+ExemploCorrentista
+
+    import java.util.ArrayList;
+    import java.util.List;
+
+List<Conta> Contas = new ArrayList<Conta>();
+        
+        //Criar uma conta       
+        Conta c = new Conta();
+        c.Abrir("duda","001","123");
+        
+        //Adiciona na lista
+        Contas.add(c);
+        
+        c = new Conta(); //tem que criar dnv p não subescrever
+        c.Abrir("dudaa","123","001");
+        Contas.add(c);
+        
+        for (Conta conta : Contas) 
+        {
+            System.out.println(conta.getNomecorrentista());
+        }
+
