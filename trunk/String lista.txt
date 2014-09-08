@@ -53,3 +53,61 @@ List<Conta> Contas = new ArrayList<Conta>();
             System.out.println(conta.getNomecorrentista());
         }
 
+
+=============================================================================================================
+
+List<Cliente> lista = new ArrayList<Cliente>();
+        
+        Cliente cli = new Cliente();
+        
+        cli.setNome("Fulano");
+        cli.setCpf(1234);
+        lista.add(cli);
+        
+        cli = new Cliente();
+        
+        cli.setNome("Beltrano");
+        cli.setCpf(12345);
+        lista.add(cli);
+        
+        cli = new Cliente();
+        
+        cli.setNome("Ciclano");
+        cli.setCpf(123456);
+        lista.add(cli);
+        
+        for (int i = 0; i < lista.size(); i++) 
+        {
+            System.out.println (lista.get(i).getNome());
+            System.out.println (lista.get(i).getCpf());
+        }
+
+=============================================================================================================
+
+
+List<Banco> lista = new ArrayList<Banco>();
+        
+        Banco b = new Banco();        
+        b.setNome("Itau");
+        b.setNumero("001");
+        
+        lista.add(b);
+        
+        b = new Banco();
+        b.setNome("Banrisul");
+        b.setNumero("011");
+        
+        lista.add(b);
+        
+        b = new Banco();
+        b.setNome("Caixa");
+        b.setNumero("111");
+        
+        lista.add(b);
+        
+        for (int i = 0; i < lista.size(); i++) 
+        {
+            System.out.println (lista.get(i).getNome());
+            System.out.println (lista.get(i).getNumero());
+        }
+
