@@ -2,9 +2,18 @@ package caixa.eletronico;
 
 public class Conta {
     private String agencia, numeroconta, nomecorrentista;
-    private Boolean ativa;
+    private Boolean ativa; 
     private Double saldo;
 
+    public Conta() // metodo construtor (executa quando "new Conta()"
+    {
+        saldo = 0.0;
+        agencia = null;  // null, significa não atribuido 
+        nomecorrentista = null;
+        numeroconta = null;
+        ativa = false;
+    }
+    
     public String getAgencia() {
         return agencia;
     }
