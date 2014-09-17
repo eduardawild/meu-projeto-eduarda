@@ -61,7 +61,9 @@ public class TesteNovela {
             "\nCenas de violência: " + violencia + 
             "\nCenas de sexo: " + sexo + 
             "\nCenas com drogas: " + drogas + 
-            "\nPontuação do Ibope: " + n.getIbop());
+            "\nPontuação do Ibope: " + n.getIbop() + 
+            "\nClassificacao: " + n.obterClassificacao() +
+            "\nTelespectadores: " + n.obterTelespectadores());
     }
     
 }
