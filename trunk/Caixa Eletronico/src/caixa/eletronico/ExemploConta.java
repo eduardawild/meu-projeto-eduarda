@@ -4,7 +4,7 @@ package caixa.eletronico;
 public class ExemploConta {
 
     public static void main(String[] args) {
-        List<Conta> Contas = new ArrayList<Conta>();
+        List <Conta> Contas = new ArrayList<Conta>();
         
         //Criar uma conta       
         Conta c = new Conta();
