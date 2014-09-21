@@ -21,7 +21,7 @@ public class ExemploLista {
         
         for (String jog : jogadores) 
         {
-            System.out.println("jog");
+            System.out.println(jog);
         }
     }
     
