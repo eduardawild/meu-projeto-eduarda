@@ -161,9 +161,9 @@
                   <Component id="txtCache" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="botaoexibir" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="botaolimpar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="botaolimpar" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>

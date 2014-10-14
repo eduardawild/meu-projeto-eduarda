@@ -232,7 +232,7 @@ public class AtorTela extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(txtCache, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botaoexibir)
                     .addComponent(botaolimpar))
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -260,7 +260,7 @@ public class AtorTela extends javax.swing.JFrame {
     private void botaoexibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoexibirActionPerformed
         String estado = selcestado.getSelectedItem().toString();
         
-        JOptionPane.showMessageDialog(null, "Nome: " + txtNome.getText() + "\nNome Artístico: " + txtNomeArt.getText() + "\nEmail: " + txtEmail.getText()
+        JOptionPane.showMessageDialog(null, "ATOR" + "\nNome: " + txtNome.getText() + "\nNome Artístico: " + txtNomeArt.getText() + "\nEmail: " + txtEmail.getText()
         + "\nData de Nascimento: " + txtDataNasc.getText() + "\nCidade: " + txtCidade.getText() + "\nEndereço: " + txtEnd.getText() + "\nBairro: " + txtBairro.getText()
         + "\nEstado: " + estado + "\nQuantidade de Novelas: " + txtQuantNov.getText() + "\nSalário Mensal: " + txtSalario.getText() + "\nCachê por evento: " + txtCache.getText());
     }//GEN-LAST:event_botaoexibirActionPerformed
