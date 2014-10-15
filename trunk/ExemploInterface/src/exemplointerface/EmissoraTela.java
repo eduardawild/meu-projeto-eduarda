@@ -1,15 +1,14 @@
 package exemplointerface;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
 public class EmissoraTela extends javax.swing.JFrame {
-
+ List <Emissora> lista;
     public EmissoraTela() {
         initComponents();
-        List <Emissora> lista = new ArrayList <Emissora>();
+        lista = new ArrayList <Emissora>();
     }
 
     @SuppressWarnings("unchecked")
@@ -23,8 +22,9 @@ public class EmissoraTela extends javax.swing.JFrame {
         txtEnd = new javax.swing.JTextField();
         botaoexibir = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        botaolimpar = new javax.swing.JButton();
         cboExibicao = new javax.swing.JComboBox();
+        botaoinserir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,7 +37,7 @@ public class EmissoraTela extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Exibição:");
 
-        botaoexibir.setText("Exibir Informações");
+        botaoexibir.setText("Exibir ");
         botaoexibir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoexibirActionPerformed(evt);
@@ -49,35 +49,51 @@ public class EmissoraTela extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 153, 204));
         jLabel4.setText("EMISSORA");
 
-        jButton2.setText("Limpar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botaolimpar.setText("Limpar");
+        botaolimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botaolimparActionPerformed(evt);
             }
         });
 
         cboExibicao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Aberta", "Fechada" }));
+
+        botaoinserir.setText("Inserir");
+        botaoinserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoinserirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(botaolimpar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtEnd, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                            .addComponent(txtNome)
+                            .addComponent(cboExibicao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(51, 51, 51))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(botaoinserir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                         .addComponent(botaoexibir)
-                        .addGap(45, 45, 45)
-                        .addComponent(jButton2))
-                    .addComponent(txtEnd, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
-                    .addComponent(txtNome)
-                    .addComponent(cboExibicao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(51, 51, 51))
+                        .addGap(41, 41, 41))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(149, 149, 149)
                 .addComponent(jLabel4)
@@ -103,7 +119,8 @@ public class EmissoraTela extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoexibir)
-                    .addComponent(jButton2))
+                    .addComponent(botaoinserir)
+                    .addComponent(botaolimpar))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -126,12 +143,37 @@ public class EmissoraTela extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botaoexibirActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botaolimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaolimparActionPerformed
+        Limpar();
+    }//GEN-LAST:event_botaolimparActionPerformed
+
+    private void botaoinserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoinserirActionPerformed
+        Emissora obj = new Emissora();
+        
+        obj.setNomemis(txtNome.getText());
+        obj.setEndemis(txtEnd.getText());
+        
+        //verifica se foi selecionado Aberta ou Fechada
+ 
+        if(cboExibicao.getSelectedItem().toString().equals("Aberta") == true)
+        {
+            obj.setTv(true);
+        }
+        else
+        {
+            obj.setTv(false);
+        }
+        
+        lista.add(obj);
+        Limpar();
+    }//GEN-LAST:event_botaoinserirActionPerformed
+
+    private void Limpar ()
+    {
         txtNome.setText("");
         txtEnd.setText("");
         cboExibicao.setSelectedIndex(0);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -166,8 +208,9 @@ public class EmissoraTela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoexibir;
+    private javax.swing.JButton botaoinserir;
+    private javax.swing.JButton botaolimpar;
     private javax.swing.JComboBox cboExibicao;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
