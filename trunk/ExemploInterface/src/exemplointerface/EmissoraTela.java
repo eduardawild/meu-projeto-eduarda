@@ -1,11 +1,15 @@
 package exemplointerface;
 
+
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class EmissoraTela extends javax.swing.JFrame {
 
     public EmissoraTela() {
         initComponents();
+        List <Emissora> lista = new ArrayList <Emissora>();
     }
 
     @SuppressWarnings("unchecked")
