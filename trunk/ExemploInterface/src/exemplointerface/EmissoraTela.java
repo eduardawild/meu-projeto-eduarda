@@ -6,9 +6,11 @@ import javax.swing.JOptionPane;
 
 public class EmissoraTela extends javax.swing.JFrame {
  List <Emissora> lista;
+ Integer posicao;
     public EmissoraTela() {
         initComponents();
         lista = new ArrayList <Emissora>();
+        posicao = 0;
     }
 
     @SuppressWarnings("unchecked")
@@ -20,11 +22,15 @@ public class EmissoraTela extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         txtEnd = new javax.swing.JTextField();
-        botaoexibir = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         botaolimpar = new javax.swing.JButton();
         cboExibicao = new javax.swing.JComboBox();
         botaoinserir = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        botaoprimeiro = new javax.swing.JButton();
+        botaoanterior = new javax.swing.JButton();
+        botaoproximo = new javax.swing.JButton();
+        botaoultimo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,17 +43,11 @@ public class EmissoraTela extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Exibição:");
 
-        botaoexibir.setText("Exibir ");
-        botaoexibir.addActionListener(new java.awt.event.ActionListener() {
+        txtEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoexibirActionPerformed(evt);
+                txtEndActionPerformed(evt);
             }
         });
-
-        jLabel4.setBackground(new java.awt.Color(255, 0, 102));
-        jLabel4.setFont(new java.awt.Font("Gabriola", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 153, 204));
-        jLabel4.setText("EMISSORA");
 
         botaolimpar.setText("Limpar");
         botaolimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -65,46 +65,107 @@ public class EmissoraTela extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setBackground(new java.awt.Color(255, 0, 102));
+        jLabel4.setFont(new java.awt.Font("Gabriola", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 153, 204));
+        jLabel4.setText("EMISSORA");
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Navegação"));
+
+        botaoprimeiro.setText("Primeiro");
+        botaoprimeiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoprimeiroActionPerformed(evt);
+            }
+        });
+
+        botaoanterior.setText("Anterior");
+        botaoanterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoanteriorActionPerformed(evt);
+            }
+        });
+
+        botaoproximo.setText("Próximo");
+        botaoproximo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoproximoActionPerformed(evt);
+            }
+        });
+
+        botaoultimo.setText("Último");
+        botaoultimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoultimoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(botaoprimeiro)
+                .addGap(34, 34, 34)
+                .addComponent(botaoanterior)
+                .addGap(34, 34, 34)
+                .addComponent(botaoproximo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(botaoultimo)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoprimeiro)
+                    .addComponent(botaoanterior)
+                    .addComponent(botaoproximo)
+                    .addComponent(botaoultimo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(40, 40, 40)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(botaolimpar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtEnd, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(72, 72, 72)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtNome)
-                            .addComponent(cboExibicao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(51, 51, 51))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(botaoinserir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                        .addComponent(botaoexibir)
-                        .addGap(41, 41, 41))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtEnd)
+                            .addComponent(cboExibicao, 0, 335, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(botaolimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                        .addComponent(botaoinserir, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -118,30 +179,13 @@ public class EmissoraTela extends javax.swing.JFrame {
                     .addComponent(cboExibicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoexibir)
                     .addComponent(botaoinserir)
                     .addComponent(botaolimpar))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botaoexibirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoexibirActionPerformed
-        String nome, endereco, exibicao;
-        nome = txtNome.getText();
-        endereco = txtEnd.getText();
-        exibicao = cboExibicao.getSelectedItem().toString();
-        
-        if (nome.equals("") == true || endereco.equals("") == true)
-        {    
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos com informações!");        
-        }
-        else
-        {       
-            JOptionPane.showMessageDialog(null, "Nome: " + nome + "\nEndereço: " + endereco + "\nExibição: " + exibicao); 
-        }
-    }//GEN-LAST:event_botaoexibirActionPerformed
 
     private void botaolimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaolimparActionPerformed
         Limpar();
@@ -165,8 +209,96 @@ public class EmissoraTela extends javax.swing.JFrame {
         }
         
         lista.add(obj);
+        posicao ++;
+  
         Limpar();
     }//GEN-LAST:event_botaoinserirActionPerformed
+
+    private void txtEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEndActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEndActionPerformed
+
+    private void botaoprimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoprimeiroActionPerformed
+        //testa se tem algum elemento na lista
+        if (lista.size()>0)
+        {    
+            posicao = 0;
+        
+            //Pegar o primeiro elemento da lista. A variável elemento é o primeiro objeto da lista de Emissoras
+            Emissora elemento = lista.get(0);
+        
+            txtNome.setText(elemento.getNomemis());
+            txtEnd.setText(elemento.getEndemis());
+        
+            if (elemento.isTv() == true)
+            {
+                cboExibicao.setSelectedIndex(1);
+            }
+            else
+            {
+                cboExibicao.setSelectedIndex(2);
+            }
+            
+           
+        }
+    }//GEN-LAST:event_botaoprimeiroActionPerformed
+
+    private void botaoanteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoanteriorActionPerformed
+        posicao = posicao - 1;
+        
+        Emissora elemento = lista.get(posicao);
+        
+        txtNome.setText(elemento.getNomemis());
+        txtEnd.setText(elemento.getEndemis());
+        
+        if (elemento.isTv() == true)
+        {
+            cboExibicao.setSelectedIndex(1);
+        }
+        else
+        {
+            cboExibicao.setSelectedIndex(2);
+        }
+        
+    }//GEN-LAST:event_botaoanteriorActionPerformed
+
+    private void botaoproximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoproximoActionPerformed
+        posicao = posicao + 1;
+        
+        Emissora elemento = lista.get(posicao);
+        
+        txtNome.setText(elemento.getNomemis());
+        txtEnd.setText(elemento.getEndemis());
+        
+        if (elemento.isTv() == true)
+        {
+            cboExibicao.setSelectedIndex(1);
+        }
+        else
+        {
+            cboExibicao.setSelectedIndex(2);
+        }
+        
+    }//GEN-LAST:event_botaoproximoActionPerformed
+
+    private void botaoultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoultimoActionPerformed
+        posicao = lista.size() - 1;
+        
+        Emissora elemento = lista.get(posicao);
+        
+        txtNome.setText(elemento.getNomemis());
+        txtEnd.setText(elemento.getEndemis());
+        
+        if (elemento.isTv() == true)
+        {
+            cboExibicao.setSelectedIndex(1);
+        }
+        else
+        {
+            cboExibicao.setSelectedIndex(2);
+        }
+        
+    }//GEN-LAST:event_botaoultimoActionPerformed
 
     private void Limpar ()
     {
@@ -207,14 +339,18 @@ public class EmissoraTela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoexibir;
+    private javax.swing.JButton botaoanterior;
     private javax.swing.JButton botaoinserir;
     private javax.swing.JButton botaolimpar;
+    private javax.swing.JButton botaoprimeiro;
+    private javax.swing.JButton botaoproximo;
+    private javax.swing.JButton botaoultimo;
     private javax.swing.JComboBox cboExibicao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtEnd;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
