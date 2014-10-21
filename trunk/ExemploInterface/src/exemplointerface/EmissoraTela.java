@@ -219,7 +219,13 @@ public class EmissoraTela extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEndActionPerformed
 
     private void botaoprimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoprimeiroActionPerformed
+        botaoprimeiro.setEnabled(true);
+        botaoanterior.setEnabled(false);
+        botaoproximo.setEnabled(true);
+        botaoultimo.setEnabled(true);
+        
         //testa se tem algum elemento na lista
+        
         if (lista.size()>0)
         {    
             posicao = 0;
@@ -237,17 +243,22 @@ public class EmissoraTela extends javax.swing.JFrame {
             else
             {
                 cboExibicao.setSelectedIndex(2);
-            }
-            
-           
+            }       
         }
     }//GEN-LAST:event_botaoprimeiroActionPerformed
 
     private void botaoanteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoanteriorActionPerformed
+        botaoprimeiro.setEnabled(true);
+        botaoanterior.setEnabled(true);
+        botaoproximo.setEnabled(true);
+        botaoultimo.setEnabled(true);
+        
         posicao = posicao - 1;
         
         Emissora elemento = lista.get(posicao);
         
+        if (posicao != 0)
+        {
         txtNome.setText(elemento.getNomemis());
         txtEnd.setText(elemento.getEndemis());
         
@@ -259,10 +270,15 @@ public class EmissoraTela extends javax.swing.JFrame {
         {
             cboExibicao.setSelectedIndex(2);
         }
-        
+        }
     }//GEN-LAST:event_botaoanteriorActionPerformed
 
     private void botaoproximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoproximoActionPerformed
+        botaoprimeiro.setEnabled(true);
+        botaoanterior.setEnabled(true);
+        botaoproximo.setEnabled(true);
+        botaoultimo.setEnabled(true);
+        
         posicao = posicao + 1;
         
         Emissora elemento = lista.get(posicao);
@@ -279,9 +295,19 @@ public class EmissoraTela extends javax.swing.JFrame {
             cboExibicao.setSelectedIndex(2);
         }
         
+        if (posicao == lista.size() - 1)
+        {
+            botaoproximo.setEnabled(false);
+            botaoultimo.setEnabled(false);
+        }
     }//GEN-LAST:event_botaoproximoActionPerformed
 
     private void botaoultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoultimoActionPerformed
+        botaoprimeiro.setEnabled(true);
+        botaoanterior.setEnabled(true);
+        botaoproximo.setEnabled(false);
+        botaoultimo.setEnabled(true);
+        
         posicao = lista.size() - 1;
         
         Emissora elemento = lista.get(posicao);
