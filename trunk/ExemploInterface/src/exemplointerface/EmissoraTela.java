@@ -31,6 +31,9 @@ public class EmissoraTela extends javax.swing.JFrame {
         botaoanterior = new javax.swing.JButton();
         botaoproximo = new javax.swing.JButton();
         botaoultimo = new javax.swing.JButton();
+        botaoexcluir = new javax.swing.JButton();
+        botaoconsultar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,12 +130,28 @@ public class EmissoraTela extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        botaoexcluir.setText("Excluir");
+        botaoexcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoexcluirActionPerformed(evt);
+            }
+        });
+
+        botaoconsultar.setText("Consultar");
+        botaoconsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoconsultarActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Atualizar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -142,20 +161,26 @@ public class EmissoraTela extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtNome)
-                            .addComponent(txtEnd)
-                            .addComponent(cboExibicao, 0, 335, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(botaolimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                        .addComponent(botaoinserir, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(72, 72, 72)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtNome)
+                                    .addComponent(txtEnd)
+                                    .addComponent(cboExibicao, 0, 335, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(botaolimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botaoinserir, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botaoexcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botaoconsultar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1)))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -180,7 +205,10 @@ public class EmissoraTela extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoinserir)
-                    .addComponent(botaolimpar))
+                    .addComponent(botaolimpar)
+                    .addComponent(botaoexcluir)
+                    .addComponent(botaoconsultar)
+                    .addComponent(jButton1))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -243,7 +271,12 @@ public class EmissoraTela extends javax.swing.JFrame {
             else
             {
                 cboExibicao.setSelectedIndex(2);
-            }       
+            } 
+            
+            if (lista.size() == 1)
+            {
+                botaoproximo.setEnabled(false);
+            }
         }
     }//GEN-LAST:event_botaoprimeiroActionPerformed
 
@@ -298,7 +331,7 @@ public class EmissoraTela extends javax.swing.JFrame {
         if (posicao == lista.size() - 1)
         {
             botaoproximo.setEnabled(false);
-            botaoultimo.setEnabled(false);
+            botaoultimo.setEnabled(true);
         }
     }//GEN-LAST:event_botaoproximoActionPerformed
 
@@ -306,7 +339,7 @@ public class EmissoraTela extends javax.swing.JFrame {
         botaoprimeiro.setEnabled(true);
         botaoanterior.setEnabled(true);
         botaoproximo.setEnabled(false);
-        botaoultimo.setEnabled(true);
+        botaoultimo.setEnabled(false);
         
         posicao = lista.size() - 1;
         
@@ -325,6 +358,46 @@ public class EmissoraTela extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_botaoultimoActionPerformed
+
+    private void botaoexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoexcluirActionPerformed
+        lista.remove(lista.get(posicao)); //pega o objeto da posicao
+        Limpar();
+    }//GEN-LAST:event_botaoexcluirActionPerformed
+
+    private void botaoconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoconsultarActionPerformed
+        String nome = JOptionPane.showInputDialog("Digite o nome a ser pesquisado:");
+        Boolean encontrou = false;
+        
+        for (Emissora emissora : lista) 
+        {
+            //testar se o texto digitado é igual ao elemento da lista
+            if (nome.equals(emissora.getNomemis()))
+            {
+                encontrou = true;
+                //Exibir o conteúdo no formulário  
+                txtNome.setText(emissora.getNomemis());
+                txtEnd.setText(emissora.getEndemis());
+        
+                if (emissora.isTv() == true)
+                {
+                    cboExibicao.setSelectedIndex(1);
+                }
+                else
+                {
+                   cboExibicao.setSelectedIndex(2);
+                }
+                
+                //parar o for
+                break;
+            }
+        }
+        
+        if (encontrou == false)
+        {
+            JOptionPane.showMessageDialog(null, "Emissora ainda não cadastrada!");
+        }
+        
+    }//GEN-LAST:event_botaoconsultarActionPerformed
 
     private void Limpar ()
     {
@@ -366,12 +439,15 @@ public class EmissoraTela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoanterior;
+    private javax.swing.JButton botaoconsultar;
+    private javax.swing.JButton botaoexcluir;
     private javax.swing.JButton botaoinserir;
     private javax.swing.JButton botaolimpar;
     private javax.swing.JButton botaoprimeiro;
     private javax.swing.JButton botaoproximo;
     private javax.swing.JButton botaoultimo;
     private javax.swing.JComboBox cboExibicao;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
