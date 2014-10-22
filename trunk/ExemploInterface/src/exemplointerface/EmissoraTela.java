@@ -357,6 +357,10 @@ public class EmissoraTela extends javax.swing.JFrame {
             cboExibicao.setSelectedIndex(2);
         }
         
+        if (lista.size() == 1)
+        {
+             botaoanterior.setEnabled(false);
+        }
     }//GEN-LAST:event_botaoultimoActionPerformed
 
     private void botaoexcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoexcluirActionPerformed
