@@ -292,12 +292,14 @@ public class EmissoraTela extends javax.swing.JFrame {
         botaoproximo.setEnabled(true);
         botaoultimo.setEnabled(true);
         
+        
+        
+        if (posicao > 0)
+        {
         posicao = posicao - 1;
         
-        Emissora elemento = lista.get(posicao);
-        
-        if (posicao != 0)
-        {
+        Emissora elemento = lista.get(posicao); 
+            
         txtNome.setText(elemento.getNomemis());
         txtEnd.setText(elemento.getEndemis());
         
@@ -377,12 +379,14 @@ public class EmissoraTela extends javax.swing.JFrame {
     private void botaoconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoconsultarActionPerformed
         String nome = JOptionPane.showInputDialog("Digite o nome a ser pesquisado:");
         Boolean encontrou = false;
+        Integer posicaoachou = 0;
         
         for (Emissora emissora : lista) 
         {
             //testar se o texto digitado é igual ao elemento da lista
             if (nome.equals(emissora.getNomemis()))
             {
+                posicao = posicaoachou;
                 encontrou = true;
                 //Exibir o conteúdo no formulário  
                 txtNome.setText(emissora.getNomemis());
@@ -400,6 +404,7 @@ public class EmissoraTela extends javax.swing.JFrame {
                 //parar o for
                 break;
             }
+            posicaoachou ++;
         }
         
         if (encontrou == false)
