@@ -119,6 +119,12 @@ Integer posicao;
             }
         });
 
+        txtSalario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSalarioActionPerformed(evt);
+            }
+        });
+
         selecestado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "RS", "PR", "SC" }));
         selecestado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -445,13 +451,14 @@ Integer posicao;
         botaoanterior.setEnabled(true);
         botaoproximo.setEnabled(true);
         botaoultimo.setEnabled(true);
-        
+             
+        if (posicao > 0)
+        {
+            
         posicao = posicao - 1;
         
         Ator elemento = lista.get(posicao);
         
-        if (posicao != 0)
-        {
         txtNome.setText(elemento.getNomeator());
         txtEnd.setText(elemento.getEnd());
         txtNome.setText(elemento.getNomeator());
@@ -575,12 +582,14 @@ Integer posicao;
     private void botaoconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoconsultarActionPerformed
         String nome = JOptionPane.showInputDialog("Digite o nome a ser pesquisado:");
         Boolean encontrou = false;
-
+        Integer posicaoachou = 0;
+        
         for (Ator ator : lista)
         {
             //testar se o texto digitado é igual ao elemento da lista
             if (nome.equals(ator.getNomeator()))
             {
+                posicao = posicaoachou;
                 encontrou = true;
                 //Exibir o conteúdo no formulário
                 txtNome.setText(ator.getNomeator());
@@ -616,6 +625,8 @@ Integer posicao;
                 //parar o for
                 break;
             }
+            
+            posicaoachou ++;
         }
 
         if (encontrou == false)
@@ -661,6 +672,10 @@ Integer posicao;
        status = a.obterStatus();
        JOptionPane.showMessageDialog(null, "Status do Ator: " + status);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalarioActionPerformed
 
     /**
      * @param args the command line arguments

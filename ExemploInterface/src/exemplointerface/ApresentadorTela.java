@@ -397,13 +397,13 @@ Integer posicao;
         botaoanterior.setEnabled(true);
         botaoproximo.setEnabled(true);
         botaoultimo.setEnabled(true);
+         
+        if (posicao > 0)
+        { 
+            posicao = posicao - 1;
         
-        posicao = posicao - 1;
-        
-        Apresentador elemento = lista.get(posicao);
-        
-        if (posicao != 0)
-        {
+            Apresentador elemento = lista.get(posicao);
+            
             nomeApresentador.setText(elemento.getNomeap());
             nomeArtApresent.setText(elemento.getNomeartap());
             dataNascimento.setText(elemento.getDatanascap());
@@ -510,11 +510,14 @@ Integer posicao;
     private void botaoconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoconsultarActionPerformed
        String pesquisa = JOptionPane.showInputDialog(null, "Digite o nome do Apresentador a ser pesquisado: ");
        boolean encontrou = false;
+       Integer posicaoachou = 0; //Inicializa o contador
        
         for (Apresentador apresentador : lista) 
         {
             if (apresentador.getNomeap().equals(pesquisa))
             {
+                //atualizar a posicao
+                posicao = posicaoachou; //Atualuza a posição quando achar
                 encontrou = true;
                 
             nomeApresentador.setText(apresentador.getNomeap());
@@ -544,11 +547,14 @@ Integer posicao;
                 break;
             }
             
-            if (encontrou == false)
+            posicaoachou ++; //senão incrementa a variavel
+            
+           
+        }
+         if (encontrou == false)
             {
                 JOptionPane.showMessageDialog(null, "Apresentador ainda não cadastrado!");
             }
-        }
     }//GEN-LAST:event_botaoconsultarActionPerformed
 
     private void botaoultimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoultimoActionPerformed

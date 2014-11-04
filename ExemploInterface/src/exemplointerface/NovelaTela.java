@@ -336,12 +336,14 @@ Integer posicao;
         botaoproximo.setEnabled(true);
         botaoultimo.setEnabled(true);
         
-        posicao = posicao - 1;
         
-        Novela elemento = lista.get(posicao);
         
-        if (posicao != 0)
+        if (posicao > 0)
         {
+            posicao = posicao - 1;
+        
+            Novela elemento = lista.get(posicao);
+            
             txtTitulo.setText(elemento.getTitulo());
             txtPrimCap.setText(elemento.getDatapcap());
             txtUltCap.setText(elemento.getDataucap());
@@ -599,12 +601,14 @@ Integer posicao;
     private void botaoconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoconsultarActionPerformed
          String pesquisa = JOptionPane.showInputDialog("Digite o título da novela a ser pesquisada: ");
          boolean encontrou = false;
+         Integer posicaoachou = 0;
          
          for (Novela novela : lista) 
          {
             if (pesquisa.equals(novela.getTitulo()))
             {
-            encontrou = true;
+                posicao = posicaoachou;
+                encontrou = true;
             
             txtTitulo.setText(novela.getTitulo());
             txtPrimCap.setText(novela.getDatapcap());
@@ -643,6 +647,8 @@ Integer posicao;
             
             break;        
             }
+            
+            posicaoachou++;
             
             if (encontrou == false)
             {
