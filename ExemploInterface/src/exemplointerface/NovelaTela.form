@@ -52,7 +52,7 @@
                                   <Component id="txtUltCap" max="32767" attributes="0"/>
                                   <Component id="txtAutor" max="32767" attributes="0"/>
                                   <Component id="txtHorario" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtEmissora" max="32767" attributes="0"/>
+                                  <Component id="txtEmisora" max="32767" attributes="0"/>
                                   <Component id="txtIbope" max="32767" attributes="0"/>
                                   <Component id="selecviolencia" pref="187" max="32767" attributes="0"/>
                                   <Component id="selecsexo" max="32767" attributes="0"/>
@@ -120,7 +120,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtEmissora" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtEmisora" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -261,7 +261,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtHorario">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtEmissora">
+    <Component class="javax.swing.JTextField" name="txtEmisora">
     </Component>
     <Component class="javax.swing.JTextField" name="txtIbope">
     </Component>

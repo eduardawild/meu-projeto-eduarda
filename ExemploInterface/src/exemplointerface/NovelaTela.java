@@ -40,7 +40,7 @@ Integer posicao;
         txtUltCap = new javax.swing.JTextField();
         txtAutor = new javax.swing.JTextField();
         txtHorario = new javax.swing.JTextField();
-        txtEmissora = new javax.swing.JTextField();
+        txtEmisora = new javax.swing.JTextField();
         txtIbope = new javax.swing.JTextField();
         selecviolencia = new javax.swing.JComboBox();
         selecsexo = new javax.swing.JComboBox();
@@ -202,35 +202,34 @@ Integer posicao;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel8)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel10)
-                                .addComponent(jLabel11))
-                            .addGap(36, 36, 36)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtTitulo)
-                                .addComponent(txtPrimCap)
-                                .addComponent(txtUltCap)
-                                .addComponent(txtAutor)
-                                .addComponent(txtHorario)
-                                .addComponent(txtEmissora)
-                                .addComponent(txtIbope)
-                                .addComponent(selecviolencia, 0, 187, Short.MAX_VALUE)
-                                .addComponent(selecsexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(selecdrogas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11))
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtTitulo)
+                                    .addComponent(txtPrimCap)
+                                    .addComponent(txtUltCap)
+                                    .addComponent(txtAutor)
+                                    .addComponent(txtHorario)
+                                    .addComponent(txtEmisora)
+                                    .addComponent(txtIbope)
+                                    .addComponent(selecviolencia, 0, 187, Short.MAX_VALUE)
+                                    .addComponent(selecsexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(selecdrogas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(159, 159, 159)
                         .addComponent(jLabel1))
@@ -278,7 +277,7 @@ Integer posicao;
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtEmissora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmisora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -316,7 +315,7 @@ Integer posicao;
         txtUltCap.setText("");
         txtAutor.setText("");
         txtHorario.setText("");
-        txtEmissora.setText("");
+        txtEmisora.setText("");
         txtIbope.setText("");
         selecviolencia.setSelectedIndex(0);
         selecsexo.setSelectedIndex(0);
@@ -349,7 +348,7 @@ Integer posicao;
             txtUltCap.setText(elemento.getDataucap());
             txtAutor.setText(elemento.getAutor());
             txtHorario.setText(elemento.getHoraexib());
-            txtEmissora.setText(elemento.getEmissora());
+            txtEmisora.setText(elemento.getEmisora());
             txtIbope.setText(elemento.getIbop().toString());
             
             if (elemento.isViolencia() == true)
@@ -403,7 +402,7 @@ Integer posicao;
             txtUltCap.setText(elemento.getDataucap());
             txtAutor.setText(elemento.getAutor());
             txtHorario.setText(elemento.getHoraexib());
-            txtEmissora.setText(elemento.getEmissora());
+            txtEmisora.setText(elemento.getEmisora());
             txtIbope.setText(elemento.getIbop().toString());
             
             if (elemento.isViolencia() == true)
@@ -455,7 +454,7 @@ Integer posicao;
             txtUltCap.setText(elemento.getDataucap());
             txtAutor.setText(elemento.getAutor());
             txtHorario.setText(elemento.getHoraexib());
-            txtEmissora.setText(elemento.getEmissora());
+            txtEmisora.setText(elemento.getEmisora());
             txtIbope.setText(elemento.getIbop().toString());
             
             if (elemento.isViolencia() == true)
@@ -512,7 +511,7 @@ Integer posicao;
             txtUltCap.setText(elemento.getDataucap());
             txtAutor.setText(elemento.getAutor());
             txtHorario.setText(elemento.getHoraexib());
-            txtEmissora.setText(elemento.getEmissora());
+            txtEmisora.setText(elemento.getEmisora());
             txtIbope.setText(elemento.getIbop().toString());
             
             if (elemento.isViolencia() == true)
@@ -556,7 +555,7 @@ Integer posicao;
         nov.setDataucap(txtUltCap.getText());
         nov.setAutor(txtAutor.getText());
         nov.setHoraexib(txtHorario.getText());
-        nov.setEmissora(txtEmissora.getText());
+        nov.setEmisora(txtEmisora.getText());
         nov.setIbop(Integer.parseInt(txtIbope.getText()));
         
         if (selecviolencia.getSelectedItem().toString().equals("Sim") == true)
@@ -615,7 +614,7 @@ Integer posicao;
             txtUltCap.setText(novela.getDataucap());
             txtAutor.setText(novela.getAutor());
             txtHorario.setText(novela.getHoraexib());
-            txtEmissora.setText(novela.getEmissora());
+            txtEmisora.setText(novela.getEmisora());
             txtIbope.setText(novela.getIbop().toString());
             
             if (novela.isViolencia() == true)
@@ -725,7 +724,7 @@ Integer posicao;
     private javax.swing.JComboBox selecsexo;
     private javax.swing.JComboBox selecviolencia;
     private javax.swing.JTextField txtAutor;
-    private javax.swing.JTextField txtEmissora;
+    private javax.swing.JTextField txtEmisora;
     private javax.swing.JTextField txtHorario;
     private javax.swing.JTextField txtIbope;
     private javax.swing.JTextField txtPrimCap;

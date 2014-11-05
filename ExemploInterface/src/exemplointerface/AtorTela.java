@@ -53,7 +53,7 @@ Integer posicao;
         botaoinserir = new javax.swing.JButton();
         botaoexcluir = new javax.swing.JButton();
         botaolimpar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        botaostatus = new javax.swing.JButton();
         txtGanhos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -222,10 +222,10 @@ Integer posicao;
             }
         });
 
-        jButton1.setText("Status");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botaostatus.setText("Status");
+        botaostatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botaostatusActionPerformed(evt);
             }
         });
 
@@ -290,7 +290,7 @@ Integer posicao;
                                 .addComponent(jButton2))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jButton1)))))
+                                .addComponent(botaostatus)))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -356,7 +356,7 @@ Integer posicao;
                     .addComponent(jButton2)
                     .addComponent(botaolimpar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(botaostatus)
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -666,12 +666,12 @@ Integer posicao;
         Limpar();
     }//GEN-LAST:event_botaolimparActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botaostatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaostatusActionPerformed
        Ator a = lista.get(posicao);
        String status;
        status = a.obterStatus();
        JOptionPane.showMessageDialog(null, "Status do Ator: " + status);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botaostatusActionPerformed
 
     private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioActionPerformed
         // TODO add your handling code here:
@@ -720,8 +720,8 @@ Integer posicao;
     private javax.swing.JButton botaolimpar;
     private javax.swing.JButton botaoprimeiro;
     private javax.swing.JButton botaoproximo;
+    private javax.swing.JButton botaostatus;
     private javax.swing.JButton botaoultimo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
