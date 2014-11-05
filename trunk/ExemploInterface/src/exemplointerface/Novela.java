@@ -1,17 +1,23 @@
 package exemplointerface;
 
 public class Novela {
-    private String titulo, datapcap, dataucap, horaexib, autor, emissora;
+    private String titulo, datapcap, dataucap, horaexib, autor, emisora;
     private boolean violencia, sexo, drogas;
     private Integer ibope;
+    private Emissora emissoraa; //variável emissora do tipo emissora
 
+    public Novela()
+    {
+        this.emissoraa = new Emissora();
+    }
+    
     public String getTitulo() {
         return titulo;
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
+        this.titulo = titulo; //o this garante que o que está sendo mudado é o atributo e não o parâmetro que tem o mesmo nome do atributo
+    }                         //quando preciso referenciar as variáveis da classe, tem que usar o this.
 
     public String getDatapcap() {
         return datapcap;
@@ -45,14 +51,14 @@ public class Novela {
         this.autor = autor;
     }
 
-    public String getEmissora() {
-        return emissora;
+    public String getEmisora() {
+        return emisora;
     }
 
-    public void setEmissora(String emissora) {
-        this.emissora = emissora;
+    public void setEmisora(String emisora) {
+        this.emisora = emisora;
     }
-
+    
     public Integer getIbop() {
         return ibope;
     }
