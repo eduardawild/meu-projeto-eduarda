@@ -7,17 +7,14 @@ public class Filial {
     private String cidade;
     private Gerente gerente;
     private Double precolanche;
-    private Integer quantvend;
-    private Cozinheiro cozinheiros;
-    private Caixa caixas;
-
-    List <Caixa> listacaixas;
-    List <Cozinheiro> listacozinheiros;
+    private Integer quantvend; 
+    private List <Caixa> listacaixas;
+    private List <Cozinheiro> listacozinheiros;
             
     public Filial()
     {
         Integer posicao = 0;
-        listacaixas = new ArrayList <Caixa>();
+        listacaixas = new ArrayList <Caixa>(); //inicializa a lista
         listacozinheiros = new ArrayList <Cozinheiro>();
     }
     
@@ -53,21 +50,22 @@ public class Filial {
         this.gerente = gerente;
     }
 
-    public Cozinheiro getCozinheiros() {
-        return cozinheiros;
+    public List<Caixa> getListacaixas() {
+        return listacaixas;
     }
 
-    public void setCozinheiros(Cozinheiro cozinheiros) {
-        this.cozinheiros = cozinheiros;
+    public void setListacaixas(List<Caixa> listacaixas) {
+        this.listacaixas = listacaixas;
     }
 
-    public Caixa getCaixas() {
-        return caixas;
+    public List<Cozinheiro> getListacozinheiros() {
+        return listacozinheiros;
     }
 
-    public void setCaixas(Caixa caixas) {
-        this.caixas = caixas;
+    public void setListacozinheiros(List<Cozinheiro> listacozinheiros) {
+        this.listacozinheiros = listacozinheiros;
     }
+    
     
     public Double faturamentoMedio()
     {
