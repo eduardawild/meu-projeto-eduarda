@@ -29,5 +29,10 @@ public class Produto extends Hamburguer{
         this.codigo = codigo;
     }
     
-    
+    public String descricaoCardapio ()
+    {
+        String descricao;
+        descricao = "Nome: " + nome + "\nPreco: " + preco;
+        return descricao;
+    }
 }
