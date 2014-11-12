@@ -23,7 +23,7 @@ public class ArquivoVideo extends Arquivo {
     public String retornarInformacaoCompleta ()
     {
         String retorno;
-        retorno = this.getNome() + ", " + this.getTipo() + ", " + this.getTamanho() + this.autor + this.duracao;
+        retorno = this.retornarInformacoes() + ", " + this.autor + ", " +  this.duracao; //herda o método retornarInformaçoes com os atributos nome, tipo e tamanho, e acrescenta o autor e a duracao
         return retorno;
     }
     
