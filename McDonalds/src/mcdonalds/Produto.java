@@ -2,7 +2,7 @@ package mcdonalds;
 
 public class Produto{
     private String nome;
-    private String preco;
+    private Double preco;
     private String codigo;
 
     public String getNome() {
@@ -13,11 +13,11 @@ public class Produto{
         this.nome = nome;
     }
 
-    public String getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(String preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
