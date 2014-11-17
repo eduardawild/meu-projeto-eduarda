@@ -20,11 +20,13 @@ public class ArquivoVideo extends Arquivo {
         this.autor = autor;
     }
     
-    public String retornarInformacaoCompleta ()
+    public String retornarInformacoes()
     {
         String retorno;
-        retorno = this.retornarInformacoes() + ", " + this.autor + ", " +  this.duracao; //herda o método retornarInformaçoes com os atributos nome, tipo e tamanho, e acrescenta o autor e a duracao
+        retorno = super.retornarInformacoes() + ", " + this.autor + ", " +  this.duracao; //herda o método retornarInformaçoes com os atributos nome, tipo e tamanho, e acrescenta o autor e a duracao
         return retorno;
+        
+        //em java, o PAI é super, ou seja ele se refere à classe retornarinformaçoes() da classe "Geral" "Pai" "Super Classe"
     }
     
 }

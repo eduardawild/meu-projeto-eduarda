@@ -38,4 +38,11 @@ public class McOferta extends Produto{
         return retorno;
     }
     
+    public Double valorEconomia ()
+    {
+       Double retorno;     
+       retorno = (hamburguer.getPreco() + batata.getPreco() + bebida.getPreco()) - (this.getPreco());
+       return retorno;
+    }
+    
 }

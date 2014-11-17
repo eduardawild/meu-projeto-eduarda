@@ -4,15 +4,27 @@ public class ExemploHeranca {
 
     public static void main(String[] args) {
        
-        ArquivoVideo arquivoV = new ArquivoVideo();
+        ArquivoVideo arquivoV = new ArquivoVideo ();
         
-        arquivoV.setNome("Herança");
-        arquivoV.setTipo("avi");
+        arquivoV.setNome("Teste");
         arquivoV.setTamanho("120mb");
-        arquivoV.setDuracao("20 minutos");
-        arquivoV.setAutor("Joao");
+        arquivoV.setTipo("avi");
+        arquivoV.setAutor("fulano");
+        arquivoV.setDuracao("30min");
+         
         
-        System.out.println(arquivoV.retornarInformacaoCompleta());
+        Arquivo arquivo  = new Arquivo();
+        
+        arquivo.setNome("qualquer um");
+        arquivo.setTipo("txt");
+        arquivo.setTamanho("1kb");
+        
+        GerenciadordeArquivo gerenciador = new GerenciadordeArquivo();
+        
+        gerenciador.setSistemaoperacional("Windows 8");
+        
+        System.out.println(gerenciador.visualizarArquivo(arquivo)); //posso passar um arquivo e qualquer descendente dele, como nesse caso um arquivo Vídeo
+        //se eu "mandasse como parâmetro acima o arquivoV ele pegaria o método retornarInformaçoes() do ArquivoVideo"
     }
     
 }
