@@ -14,9 +14,10 @@ public class Batata_Frita extends Produto{
         this.tamanho = tamanho;
     }
     
-    public String descricaoCardapioBt (){
+    @Override
+    public String descricaoCardapio (){
         String retorno;
-        retorno = this.descricaoCardapio() + "\nTamanho: " + tamanho;
+        retorno = super.descricaoCardapio() + "\nTamanho: " + tamanho;
         return retorno;
     }
 }

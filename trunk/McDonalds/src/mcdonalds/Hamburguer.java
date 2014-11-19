@@ -10,7 +10,9 @@ public class Hamburguer extends Produto{
     public void setNovo(boolean novo) {
         this.novo = novo;
     }
-    public String descricaoProdutoHamburguer (){
+    
+    @Override
+    public String descricaoCardapio (){
         String retorno, novostr;
         if (novo== true){
             novostr = "Sim";
@@ -18,7 +20,7 @@ public class Hamburguer extends Produto{
         else{
             novostr = "Não";
         }
-        retorno = this.descricaoCardapio() + "\nNovo: " + novostr;
+        retorno = super.descricaoCardapio() + "\nNovo: " + novostr;
         return retorno;
     }
 }

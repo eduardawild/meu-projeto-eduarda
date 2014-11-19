@@ -34,7 +34,7 @@ public class McOferta extends Produto{
     
     public String decricaoOferta (){
         String retorno;
-        retorno = this.descricaoCardapio();
+        retorno = super.descricaoCardapio();
         return retorno;
     }
     
