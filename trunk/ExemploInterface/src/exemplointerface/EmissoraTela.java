@@ -292,8 +292,6 @@ public class EmissoraTela extends javax.swing.JFrame {
         botaoproximo.setEnabled(true);
         botaoultimo.setEnabled(true);
         
-        
-        
         if (posicao > 0)
         {
         posicao = posicao - 1;
