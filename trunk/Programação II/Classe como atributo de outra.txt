@@ -1,0 +1,39 @@
+//na classe da novela
+
+private Emissora emissoraa; //variável emissora do tipo emissora
+
+
+public Novela()
+    {
+        this.emissora = new Emissora();
+    }
+
+
+
+
+
+//métodos geters e seters da classe novela
+
+public Emissora getEmissora() 
+    {
+        return emissoraa;
+    }
+
+    public void setEmissora(Emissora emissora) 
+    {
+        this.emissoraa = emissora;
+    }
+
+=======================================================
+//na classe da novelaTela
+
+Emissora emis = new Emissora();
+
+emis.setNomemis("Globo");
+emis.setEndemis("Rua tal 123");
+
+novela.setEmissora(emis); // manda pra classe emissora
+
+
+novela.getEmissora().getEndemis();
+
