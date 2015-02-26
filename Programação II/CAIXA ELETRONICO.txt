@@ -1,0 +1,309 @@
+CAIXA ELETRONICO
+Conta c = new Conta();
+        Cliente cl = new Cliente();
+        Banco b = new Banco();
+        
+        String nome, numero, agencia, deposito, saque, cpf, datanasc, endereco, spc, serasa, nomebanco, numbanco, empimovel, empcarro;
+        Boolean deucerto;
+        
+        /*JOptionPane.showMessageDialog(null,"ABERTURA DE CONTA");
+        
+        nome = JOptionPane.showInputDialog("Informe o nome: ");
+        numero = JOptionPane.showInputDialog("Informe o numero: ");
+        agencia = JOptionPane.showInputDialog("Informe a agencia: ");
+        
+        c.Abrir(nome, agencia, numero);
+        
+        JOptionPane.showMessageDialog(null,"DEPOSITO");
+        deposito = JOptionPane.showInputDialog("Informe o valor do deposito: ");
+        
+        if (c.Deposito(Double.parseDouble(deposito)) == false)
+        {
+            JOptionPane.showMessageDialog(null,"Deposito nao realizado, a conta ainda nao esta aberta");
+        }
+             
+        saque = JOptionPane.showInputDialog("Informe o valor do saque: ");
+        if (c.Sacar(Double.parseDouble(saque)) == false)
+        {
+            JOptionPane.showMessageDialog(null,"Saque nao realizado, a conta nao esta aberta ou nao ha saldo suficiente: ");
+        }
+        
+        JOptionPane.showMessageDialog(null,"Saldo restante: " + c.retornaSaldo()); 
+        
+        nome = JOptionPane.showInputDialog("Informe o nome:");
+        cl.setNome(nome);
+        
+        cpf = JOptionPane.showInputDialog("Informe o cpf:");
+        cl.setCpf(Integer.parseInt(cpf));
+        
+        datanasc = JOptionPane.showInputDialog("Informe a data de nascimento:");
+        cl.setDatanasc(Integer.parseInt(datanasc));
+        
+        endereco = JOptionPane.showInputDialog("Informe o endereco:");
+        cl.setEndereco(endereco);
+        
+        spc = JOptionPane.showInputDialog("Negativo no spc? SIM ou NAO:");
+        if(spc.equals("SIM")==true)        
+            cl.atribuiSpc(true);
+        else 
+            cl.atribuiSpc(false);
+        
+        serasa = JOptionPane.showInputDialog("Negativo no serasa? SIM ou NAO:");
+        if(serasa.equals("SIM")== true)        
+            cl.atribuiSerasa(true);
+        else 
+            cl.atribuiSerasa(false);    
+        
+        if (cl.retornaSpc() == true)
+        {
+            spc = "sim";
+        }
+        else
+        {
+            spc = "nao";
+        }
+        
+        if (cl.retornaSerasa() == true)
+        {
+            serasa = "sim";
+        }
+        else
+        {
+            serasa = "nao";
+        }
+                
+        JOptionPane.showMessageDialog(null,"DADOS DO CLIENTE: \n"
+                + "Nome: " + cl.getNome() + "\n Cpf: " + cl.getCpf()
+        + "\nData de nascimento: " + cl.getDatanasc() + "\nEndereco: " + cl.getEndereco()
+        + "\nNegativo no spc?: " + spc + "\nNegativo no serasa?: " + serasa); */
+        
+        nome = JOptionPane.showInputDialog("Informe o nome do banco:");
+        b.setNome(nome);
+        
+        numero = JOptionPane.showInputDialog("Informe o numero:");
+        b.setNumero(numero);
+        
+        empimovel = "";
+        while (!empimovel.equals("SIM") && !empimovel.equals("NAO"))
+        {
+            empimovel = JOptionPane.showInputDialog("Oferece empréstimo imovel? (SIM ou NAO):");
+        }
+        
+        if (empimovel.equals("SIM") == true)
+            b.atribuirEmpImovel(true);
+        else
+            b.atribuirEmpImovel(false);
+           
+        empcarro = "";
+        while (!empcarro.equals("SIM") && !empcarro.equals("NAO"))
+        {
+            empcarro = JOptionPane.showInputDialog("Oferece empréstimo carro? (SIM ou NAO):");
+        }
+               
+        if (empcarro.equals("SIM") == true)
+            b.atribuirEmpCarro(true);
+        else
+            b.atribuirEmpCarro(false);
+        
+        if (b.retornaEmpImovel() == true)
+            empimovel = "SIM";
+        else
+            empimovel = "NAO";
+        
+        if (b.retornaEmpCarro() == true)
+            empcarro = "SIM";
+        else
+            empcarro = "NAO";
+            
+        JOptionPane.showMessageDialog(null,"DADOS DO BANCO: \n"
+                + "Nome: " + b.getNome()+ "\nNumero: " + b.getNumero()
+        + "\nEmprestimo de Imovel: " + empimovel + "\nEmprestimo de Carro: " + empcarro);
+============================================================================================================================================
+
+private String agencia, numeroconta, nomecorrentista;
+    private Boolean ativa;
+    private Double saldo;
+
+    public String getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(String agencia) {
+        this.agencia = agencia;
+    }
+
+    public String getNumeroconta() {
+        return numeroconta;
+    }
+
+    public void setNumeroconta(String numeroconta) {
+        this.numeroconta = numeroconta;
+    }
+
+    public String getNomecorrentista() {
+        return nomecorrentista;
+    }
+
+    public void setNomecorrentista(String nomecorrentista) {
+        this.nomecorrentista = nomecorrentista;
+    }
+
+    public Boolean isAtiva() {
+        return ativa;
+    }
+
+    public void setAtiva(Boolean ativa) {
+        this.ativa = ativa;
+    }
+    
+    public void Abrir (String nome, String ag, String numero)
+    {
+        nomecorrentista = nome;
+        agencia = ag;
+        numeroconta = numero;  
+        
+        ativa = true;
+        saldo = 0.0;
+    }
+    
+    public Boolean Deposito (Double valor)
+    {      
+        if (ativa == true)
+        {
+            saldo = saldo + valor;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public double retornaSaldo ()
+    {
+        return saldo;
+    }
+    
+    public Boolean Sacar (double valor)
+    {
+        if (ativa == true)
+        {
+            if (valor > saldo)
+                return false;
+            else
+            {
+                saldo = saldo - valor;
+                return true;
+            }
+        }
+        else
+        {
+            return false;
+        }
+            
+    }
+    
+    public void fecharConta ()
+    {
+        ativa = false;
+    }
+
+================================================================================================================
+
+
+private Integer cpf, datanasc;
+    private String nome, endereco;
+    private boolean spc, serasa;
+
+    public Integer getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(Integer cpf) {
+        this.cpf = cpf;
+    }
+
+    public Integer getDatanasc() {
+        return datanasc;
+    }
+
+    public void setDatanasc(Integer datanasc) {
+        this.datanasc = datanasc;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void atribuiSpc (boolean valor)
+    {
+        spc = valor;
+    }
+    
+    public boolean retornaSpc ()
+    {
+        return spc;
+    }
+    
+    public void atribuiSerasa (boolean valor)
+    {
+        serasa = valor;
+    }
+    
+    public boolean retornaSerasa ()
+    {
+        return serasa;
+    }
+
+=========================================================================================================================
+
+private String nome, numero;
+    private boolean empimovel, empcarro;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+    
+    public void atribuirEmpImovel(boolean valor)
+    {
+        empimovel = valor;
+    }
+    
+    public boolean retornaEmpImovel ()
+    {
+        return empimovel;
+    }
+    
+    public void atribuirEmpCarro(boolean valor)
+    {
+        empcarro = valor;
+    }
+    
+    public boolean retornaEmpCarro ()
+    {
+        return empcarro;
+    }
