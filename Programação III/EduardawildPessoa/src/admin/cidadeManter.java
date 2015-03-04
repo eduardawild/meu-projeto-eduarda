@@ -5,7 +5,7 @@ package admin;
     import modelo.Cidade;
 public class cidadeManter extends javax.swing.JFrame {
 
-    List <Cidade> lista;
+    private List <Cidade> lista;
     Integer posicao;
     
     public cidadeManter() 
@@ -255,8 +255,16 @@ public class cidadeManter extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoInserirActionPerformed
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        lista.remove(lista.get(posicao));
-        Limpar();
+        if (txtcod.getText().isEmpty()==false)
+        {
+            lista.remove(lista.get(posicao));
+            Limpar();
+        }
+        
+        else
+        {
+            
+        }
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarActionPerformed
@@ -340,12 +348,15 @@ public class cidadeManter extends javax.swing.JFrame {
         botaoProximo.setEnabled(true);
         botaoUltimo.setEnabled(true);
         
-        posicao = posicao + 1;
+        if (posicao <lista.size() - 1)
+        {
+            posicao = posicao + 1;
         
-        Cidade elemento = lista.get(posicao);
+            Cidade elemento = lista.get(posicao);
         
-        txtcod.setText(elemento.getCidcod().toString());
-        txtnome.setText(elemento.getCidnome());
+            txtcod.setText(elemento.getCidcod().toString());
+            txtnome.setText(elemento.getCidnome());
+        }
         
         if (lista.size() - 1 == posicao)
         {
@@ -357,15 +368,18 @@ public class cidadeManter extends javax.swing.JFrame {
     private void botaoUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoUltimoActionPerformed
         botaoPrimeiro.setEnabled(true);
         botaoAnterior.setEnabled(true);
-        botaoProximo.setEnabled(true);
-        botaoUltimo.setEnabled(true);
+        botaoProximo.setEnabled(false);
+        botaoUltimo.setEnabled(false);
         
-        posicao = lista.size()-1;
+        if (lista.size()>0)
+        {
+            posicao = lista.size()-1;
         
-        Cidade elemento = lista.get(posicao);
+            Cidade elemento = lista.get(posicao);
         
-        txtcod.setText(elemento.getCidcod().toString());
-        txtnome.setText(elemento.getCidnome());
+            txtcod.setText(elemento.getCidcod().toString());
+            txtnome.setText(elemento.getCidnome());
+        }
     }//GEN-LAST:event_botaoUltimoActionPerformed
 
     public static void main(String args[]) {

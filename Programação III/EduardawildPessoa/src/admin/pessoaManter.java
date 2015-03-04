@@ -5,7 +5,7 @@ package admin;
     import modelo.Pessoa;
 public class pessoaManter extends javax.swing.JFrame {
 
-    List <Pessoa> lista; //criando a lista
+    private List <Pessoa> lista; //criando a lista
     Integer posicao;
     
     public pessoaManter() 
@@ -275,8 +275,16 @@ public class pessoaManter extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoLimparActionPerformed
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        lista.remove(lista.get(posicao));
-        Limpar();
+        if (txtCod.getText().isEmpty()==false)
+        {
+            lista.remove(lista.get(posicao));
+            Limpar();
+        }
+        
+        else
+        {
+            
+        }
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarActionPerformed
@@ -386,21 +394,25 @@ public class pessoaManter extends javax.swing.JFrame {
         botaoProximo.setEnabled(true);
         botaoUltimo.setEnabled(true);
         
-        posicao = posicao + 1;
+        if (posicao <lista.size() - 1)
+        {
+            posicao = posicao + 1;
         
-        Pessoa elemento = lista.get(posicao);
+            Pessoa elemento = lista.get(posicao);
         
-        txtCod.setText(elemento.getCodigo().toString());
-        txtNome.setText(elemento.getNome());
+            txtCod.setText(elemento.getCodigo().toString());
+            txtNome.setText(elemento.getNome());
             
-        if (elemento.getSexo().equals("Masculino"))
-        {
-            cboSexo.setSelectedIndex(1);
+            if (elemento.getSexo().equals("Masculino"))
+            {
+                cboSexo.setSelectedIndex(1);
+            }
+            else
+            {
+                cboSexo.setSelectedIndex(2);
+            }
         }
-        else
-        {
-            cboSexo.setSelectedIndex(2);
-        }
+        
         
         if (lista.size() - 1 == posicao)
         {
@@ -415,27 +427,31 @@ public class pessoaManter extends javax.swing.JFrame {
         botaoProximo.setEnabled(false);
         botaoUltimo.setEnabled(false);
         
-        posicao = lista.size() - 1;
+        if (lista.size()>0)
+        {
+            posicao = lista.size() - 1;
         
-        Pessoa elemento = lista.get(posicao);
+            Pessoa elemento = lista.get(posicao);
         
-        txtCod.setText(elemento.getCodigo().toString());
-        txtNome.setText(elemento.getNome());
+            txtCod.setText(elemento.getCodigo().toString());
+            txtNome.setText(elemento.getNome());
             
-        if (elemento.getSexo().equals("Masculino"))
-        {
-            cboSexo.setSelectedIndex(1);
-        }
-        else
-        {
-            cboSexo.setSelectedIndex(2);
-        }
+            if (elemento.getSexo().equals("Masculino"))
+            {
+                cboSexo.setSelectedIndex(1);
+            }
+            else
+            {
+                cboSexo.setSelectedIndex(2);
+            }
         
         if (lista.size() - 1 == posicao)
         {
             botaoProximo.setEnabled(false);
             botaoUltimo.setEnabled(false);
         }
+        }
+        
     }//GEN-LAST:event_botaoUltimoActionPerformed
 
     public static void main(String args[]) {
