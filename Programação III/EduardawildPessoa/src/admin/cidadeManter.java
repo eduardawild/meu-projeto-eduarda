@@ -40,6 +40,7 @@ public class cidadeManter extends javax.swing.JFrame {
         botaoLimpar = new javax.swing.JButton();
         botaoExcluir = new javax.swing.JButton();
         botaoConsultar = new javax.swing.JButton();
+        botaoListagem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,6 +141,13 @@ public class cidadeManter extends javax.swing.JFrame {
             }
         });
 
+        botaoListagem.setText("Ir para listagem");
+        botaoListagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoListagemActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -147,13 +155,17 @@ public class cidadeManter extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(botaoInserir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(botaoLimpar)
                 .addGap(34, 34, 34)
                 .addComponent(botaoExcluir)
                 .addGap(33, 33, 33)
                 .addComponent(botaoConsultar)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoListagem)
+                .addGap(138, 138, 138))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +176,8 @@ public class cidadeManter extends javax.swing.JFrame {
                     .addComponent(botaoLimpar)
                     .addComponent(botaoExcluir)
                     .addComponent(botaoConsultar))
-                .addGap(37, 37, 37))
+                .addGap(14, 14, 14)
+                .addComponent(botaoListagem))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -382,6 +395,11 @@ public class cidadeManter extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botaoUltimoActionPerformed
 
+    private void botaoListagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoListagemActionPerformed
+        cidadeListar tela = new cidadeListar();
+        tela.setVisible(true);
+    }//GEN-LAST:event_botaoListagemActionPerformed
+
     public static void main(String args[]) {
         
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -420,6 +438,7 @@ public class cidadeManter extends javax.swing.JFrame {
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoInserir;
     private javax.swing.JButton botaoLimpar;
+    private javax.swing.JButton botaoListagem;
     private javax.swing.JButton botaoPrimeiro;
     private javax.swing.JButton botaoProximo;
     private javax.swing.JButton botaoUltimo;
