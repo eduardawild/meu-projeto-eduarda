@@ -1,14 +1,20 @@
 package modelo;
 
 import java.util.Date;
+import modelo.Jogador;
 
 public class Ranking {
     
     private Integer id;
-    private String login;
+    private Jogador jogador;
     private Integer pontos;
     private Date data;
 
+    public Ranking ()
+    {
+        jogador = new Jogador();
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -17,12 +23,12 @@ public class Ranking {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public Jogador getJogador() {
+        return jogador;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setJogador(Jogador jogador) {
+        this.jogador = jogador;
     }
 
     public Integer getPontos() {
