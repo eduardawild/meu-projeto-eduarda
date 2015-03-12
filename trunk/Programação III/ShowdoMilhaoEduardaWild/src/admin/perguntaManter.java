@@ -200,14 +200,19 @@ public class perguntaManter extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("B:");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("C:");
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("D:");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Certa:");
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("Nível:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

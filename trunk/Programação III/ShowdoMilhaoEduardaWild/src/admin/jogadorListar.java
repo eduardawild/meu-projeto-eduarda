@@ -31,7 +31,7 @@ public class jogadorListar extends javax.swing.JFrame {
         item.setSenha("132");
         lista.add(item);
         
-        DefaultTableModel modelo = (DefaultTableModel)tabela.getModel();
+        DefaultTableModel modelo = (DefaultTableModel)tabelaJogador.getModel();
         
         Object[] linha = new Object [modelo.getColumnCount()]; //tamanho do array
 
@@ -50,14 +50,14 @@ public class jogadorListar extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabela = new javax.swing.JTable();
+        tabelaJogador = new javax.swing.JTable();
         btnGerenJogador = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Listagem"));
 
-        tabela.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaJogador.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -80,7 +80,7 @@ public class jogadorListar extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tabela);
+        jScrollPane1.setViewportView(tabelaJogador);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -172,6 +172,6 @@ public class jogadorListar extends javax.swing.JFrame {
     private javax.swing.JButton btnGerenJogador;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabela;
+    private javax.swing.JTable tabelaJogador;
     // End of variables declaration//GEN-END:variables
 }
