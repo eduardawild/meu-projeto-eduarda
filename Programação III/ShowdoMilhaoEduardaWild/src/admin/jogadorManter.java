@@ -45,7 +45,8 @@ public class jogadorManter extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setText("JOGADOR");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -58,7 +59,10 @@ public class jogadorManter extends javax.swing.JFrame {
         jLabel4.setText("Login:");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Navegação"));
+        jPanel1.setForeground(new java.awt.Color(0, 0, 255));
 
+        botaoPrimeiro.setBackground(new java.awt.Color(204, 0, 0));
+        botaoPrimeiro.setForeground(new java.awt.Color(255, 255, 255));
         botaoPrimeiro.setText("Primeiro");
         botaoPrimeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +70,8 @@ public class jogadorManter extends javax.swing.JFrame {
             }
         });
 
+        botaoAnterior.setBackground(new java.awt.Color(204, 0, 0));
+        botaoAnterior.setForeground(new java.awt.Color(255, 255, 255));
         botaoAnterior.setText("Anterior");
         botaoAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +79,8 @@ public class jogadorManter extends javax.swing.JFrame {
             }
         });
 
+        botaoProximo.setBackground(new java.awt.Color(204, 0, 0));
+        botaoProximo.setForeground(new java.awt.Color(255, 255, 255));
         botaoProximo.setText("Próximo");
         botaoProximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +88,8 @@ public class jogadorManter extends javax.swing.JFrame {
             }
         });
 
+        botaoUltimo.setBackground(new java.awt.Color(204, 0, 0));
+        botaoUltimo.setForeground(new java.awt.Color(255, 255, 255));
         botaoUltimo.setText("Último");
         botaoUltimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +126,8 @@ public class jogadorManter extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Ações"));
 
+        botaoInserir.setBackground(new java.awt.Color(0, 0, 204));
+        botaoInserir.setForeground(new java.awt.Color(255, 255, 255));
         botaoInserir.setText("Inserir");
         botaoInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +135,8 @@ public class jogadorManter extends javax.swing.JFrame {
             }
         });
 
+        botaoLimpar.setBackground(new java.awt.Color(0, 0, 204));
+        botaoLimpar.setForeground(new java.awt.Color(255, 255, 255));
         botaoLimpar.setText("Limpar");
         botaoLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +144,8 @@ public class jogadorManter extends javax.swing.JFrame {
             }
         });
 
+        botaoExcluir.setBackground(new java.awt.Color(0, 0, 204));
+        botaoExcluir.setForeground(new java.awt.Color(255, 255, 255));
         botaoExcluir.setText("Excluir");
         botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +153,8 @@ public class jogadorManter extends javax.swing.JFrame {
             }
         });
 
+        botaoConsultar.setBackground(new java.awt.Color(0, 0, 204));
+        botaoConsultar.setForeground(new java.awt.Color(255, 255, 255));
         botaoConsultar.setText("Consultar");
         botaoConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,7 +247,7 @@ public class jogadorManter extends javax.swing.JFrame {
                     .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();

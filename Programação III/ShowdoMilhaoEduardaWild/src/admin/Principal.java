@@ -31,6 +31,11 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setForeground(new java.awt.Color(0, 0, 204));
+
+        jMenu1.setBackground(new java.awt.Color(0, 0, 204));
+        jMenu1.setForeground(new java.awt.Color(0, 0, 204));
         jMenu1.setText("Jogador");
 
         menuGerenJog.setText("Gerenciar");
@@ -51,6 +56,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setForeground(new java.awt.Color(0, 0, 204));
         jMenu2.setText("Pergunta");
 
         menuGerenPerg.setText("Gerenciar");
@@ -78,15 +84,15 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(102, Short.MAX_VALUE)
-                .addComponent(lblSilvio, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77))
+                .addContainerGap(114, Short.MAX_VALUE)
+                .addComponent(lblSilvio, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(lblSilvio, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 510, Short.MAX_VALUE))
+                .addComponent(lblSilvio)
+                .addGap(0, 555, Short.MAX_VALUE))
         );
 
         pack();
