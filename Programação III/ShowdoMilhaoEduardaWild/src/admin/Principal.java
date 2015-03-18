@@ -11,6 +11,7 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem2 = new javax.swing.JMenuItem();
+        lblSilvio = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuGerenJog = new javax.swing.JMenuItem();
@@ -22,6 +23,13 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblSilvio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo.jpg"))); // NOI18N
+        lblSilvio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSilvioMouseClicked(evt);
+            }
+        });
 
         jMenu1.setText("Jogador");
 
@@ -69,11 +77,16 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 589, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(102, Short.MAX_VALUE)
+                .addComponent(lblSilvio, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 482, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lblSilvio, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 510, Short.MAX_VALUE))
         );
 
         pack();
@@ -115,6 +128,10 @@ public class Principal extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_menuGerenListarPergActionPerformed
 
+    private void lblSilvioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSilvioMouseClicked
+        lblSilvio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/silviosantos.jpg")));
+    }//GEN-LAST:event_lblSilvioMouseClicked
+
     public static void main(String args[]) {
         
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -151,6 +168,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JLabel lblSilvio;
     private javax.swing.JMenuItem menuGerenJog;
     private javax.swing.JMenuItem menuGerenListarPerg;
     private javax.swing.JMenuItem menuGerenPerg;
