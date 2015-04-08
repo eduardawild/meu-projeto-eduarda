@@ -18,7 +18,7 @@ public class JogadorDAO {
         //Monta o sql de insert da tabela
         String sql = "INSERT INTO jogador(login, senha, email)" + "VALUES (?, ?, ?)";
         
-        //Prepara a execição do meu sql
+        //Prepara a execução do meu sql
         PreparedStatement pst = Conexão.getPreparedStatement(sql);
         
         try 
