@@ -1,8 +1,9 @@
 package admin;
+    import dao.JogadorDAO;
     import java.util.ArrayList;
     import java.util.List;
     import javax.swing.JOptionPane;
-    import modelo.Jogador;
+import modelo.Jogador;
 public class jogadorManter extends javax.swing.JFrame {
 
     private List<Jogador> lista;
@@ -265,8 +266,22 @@ public class jogadorManter extends javax.swing.JFrame {
             item.setEmail(txtEmail.getText());
             item.setSenha(txtSenha.getText());
             item.setLogin(txtLogin.getText());
-                   
-            JOptionPane.showMessageDialog(rootPane,"Cadastrado com sucesso!");
+            
+            //instanciando a classe de acesso a dados JogadorDAO       
+            JogadorDAO dao = new JogadorDAO();
+            
+            //chamo o inserir
+            boolean deucerto = dao.inserir(item);
+            
+            if (deucerto == true)
+            {
+                JOptionPane.showMessageDialog(rootPane,"Cadastrado com sucesso!");
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(rootPane,"Erro ao cadastrar!");
+            }
+            
             lista.add(item);
             posicao ++;
             Limpar ();               
