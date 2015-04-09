@@ -1,4 +1,5 @@
 package admin;
+    import dao.JogadorDAO;
     import java.util.ArrayList;
     import java.util.List;
     import javax.swing.table.DefaultTableModel;
@@ -7,30 +8,9 @@ public class jogadorListar extends javax.swing.JFrame {
 
     public jogadorListar() {
         initComponents();
-        
-        List<Jogador> lista = new ArrayList<Jogador>();
-        
-        Jogador item = new Jogador();
-        
-        item.setEmail("fulanodasilva@gmail.com");
-        item.setLogin("Fulano");
-        item.setSenha("123");
-        lista.add(item);
-        
-        item = new Jogador();
-        
-        item.setEmail("ciclanosilveira@gmail.com");
-        item.setLogin("Ciclano");
-        item.setSenha("321");
-        lista.add(item);
-        
-        item = new Jogador();
-        
-        item.setEmail("beltranocamargo@gmail.com");
-        item.setLogin("Beltrano");
-        item.setSenha("132");
-        lista.add(item);
-        
+        JogadorDAO dao = new JogadorDAO();
+        List<Jogador> lista = dao.listar();
+            
         DefaultTableModel modelo = (DefaultTableModel)tabelaJogador.getModel();
         
         Object[] linha = new Object [modelo.getColumnCount()]; //tamanho do array

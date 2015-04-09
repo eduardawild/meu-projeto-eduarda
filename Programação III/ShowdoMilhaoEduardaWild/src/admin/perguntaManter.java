@@ -1,4 +1,5 @@
 package admin;
+    import dao.PerguntaDAO;
     import java.util.ArrayList;
     import java.util.List;
     import javax.swing.JOptionPane;
@@ -11,7 +12,8 @@ public class perguntaManter extends javax.swing.JFrame {
     
     public perguntaManter() {
         initComponents();
-        lista = new ArrayList<Pergunta>();
+        PerguntaDAO dao = new PerguntaDAO();
+        lista = dao.listar();
         posicao = 0;
     }
     
@@ -201,6 +203,8 @@ public class perguntaManter extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
+        txtId.setEditable(false);
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("B:");
 
@@ -316,27 +320,14 @@ public class perguntaManter extends javax.swing.JFrame {
 
     private void botaoInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInserirActionPerformed
         Pergunta item = new Pergunta ();
-
-        if (txtId.getText().isEmpty() || txtEnunciado.getText().isEmpty() || txtA.getText().isEmpty() || txtB.getText().isEmpty() || txtC.getText().isEmpty() || txtD.getText().isEmpty() || cboCerta.getSelectedItem().equals("Selecione") || cboNivel.getSelectedItem().equals("Selecione")) 
+           
+        if (txtEnunciado.getText().isEmpty() || txtA.getText().isEmpty() || txtB.getText().isEmpty() || txtC.getText().isEmpty() || txtD.getText().isEmpty() || cboCerta.getSelectedItem().equals("Selecione") || cboNivel.getSelectedItem().equals("Selecione")) 
             {
                 JOptionPane.showMessageDialog(rootPane,"Preencher todos os campos!");
+                
             }
             else
-            {   
-                Boolean deu = false;
-                try 
-                {
-                    item.setId(Integer.parseInt(txtId.getText()));
-                    deu = true;
-                }
-                catch (Exception ex)
-                {
-                    deu = false;
-                    JOptionPane.showMessageDialog(rootPane, "O CÓDIGO É EM NÚMERO");
-                }
-                
-                if (deu == true)
-                {
+            {              
                     item.setEnunciado(txtEnunciado.getText());
                     item.setA(txtA.getText());
                     item.setB(txtB.getText());
@@ -377,13 +368,26 @@ public class perguntaManter extends javax.swing.JFrame {
                         item.setNivel(4);
                     }
          
-                    JOptionPane.showMessageDialog(rootPane,"Cadastrado com sucesso!");
-                    lista.add(item);
-                    posicao ++;
+                    
+                    PerguntaDAO dao = new PerguntaDAO();
+            
+                    //chamo o inserir
+                    boolean deucerto = dao.inserir(item);
+            
+                    if (deucerto == true)
+                    {
+                        JOptionPane.showMessageDialog(rootPane,"Cadastrado com sucesso!");
+                    }
+                    else 
+                    {
+                        JOptionPane.showMessageDialog(rootPane,"Erro ao cadastrar!");
+                    }
+                    
+                    lista = dao.listar();
                     Limpar ();
                 }
                 
-            }    
+             
     }//GEN-LAST:event_botaoInserirActionPerformed
 
     private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
@@ -391,7 +395,7 @@ public class perguntaManter extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoLimparActionPerformed
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        if (txtId.getText().isEmpty()==false)
+        if (txtEnunciado.getText().isEmpty()==false)
         {
             lista.remove(lista.get(posicao));
             Limpar();

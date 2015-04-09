@@ -3,7 +3,7 @@ package admin;
     import java.util.ArrayList;
     import java.util.List;
     import javax.swing.JOptionPane;
-import modelo.Jogador;
+    import modelo.Jogador;
 public class jogadorManter extends javax.swing.JFrame {
 
     private List<Jogador> lista;
@@ -11,7 +11,10 @@ public class jogadorManter extends javax.swing.JFrame {
     
     public jogadorManter() {
         initComponents();
-        lista = new ArrayList<Jogador>();
+        
+        //Buscar a lista no banco de dados 
+        JogadorDAO dao = new JogadorDAO();
+        lista = dao.listar();
         posicao = 0;
     }
 
@@ -300,8 +303,22 @@ public class jogadorManter extends javax.swing.JFrame {
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
         if (txtEmail.getText().isEmpty()==false)
-        {
-            lista.remove(lista.get(posicao));
+        {      
+            //instanciando a classe de acesso a dados JogadorDAO       
+            JogadorDAO dao = new JogadorDAO();
+            
+            //chamo o inserir
+            boolean deucerto = dao.remover(lista.get(posicao));
+            
+            if (deucerto == true)
+            {
+                JOptionPane.showMessageDialog(rootPane,"Excluído com sucesso!");
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(rootPane,"Erro ao excluir!");
+            }
+            lista = dao.listar();
             Limpar();
         }
         

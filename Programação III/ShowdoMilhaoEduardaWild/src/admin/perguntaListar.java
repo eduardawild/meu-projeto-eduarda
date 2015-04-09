@@ -1,4 +1,5 @@
 package admin;
+    import dao.PerguntaDAO;
     import java.util.ArrayList;
     import java.util.List;
     import javax.swing.table.DefaultTableModel;
@@ -7,11 +8,12 @@ public class perguntaListar extends javax.swing.JFrame {
 
     public perguntaListar() {
         initComponents();
-        
-        List<Pergunta> lista = new ArrayList<Pergunta>();
+        PerguntaDAO dao = new PerguntaDAO();
+        List<Pergunta> lista = dao.listar();
         
         Pergunta item = new Pergunta();
         
+        /*
         item.setId(1);
         item.setEnunciado("É frágil, temporária e dura de 4 a 8 anos: ");
         item.setA("Política de Governo ou Partidária");
@@ -44,7 +46,7 @@ public class perguntaListar extends javax.swing.JFrame {
         item.setD("Lei do Ventre Livre");
         item.setCerta("C");
         item.setNivel(1);
-        lista.add(item);
+        lista.add(item); */
         
         DefaultTableModel modelo = (DefaultTableModel)tabelaPergunta.getModel();
         

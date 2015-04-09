@@ -15,7 +15,7 @@ public class PerguntaDAO {
     {
         Boolean retorno;
         
-        String sql = "INSERT INTO Pergunta (enunciado, a, b, c, d, nivel, certa) VALUES  (?, ?, ?)";
+        String sql = "INSERT INTO Pergunta (enunciado, a, b, c, d, nivel, certa) VALUES  (?, ?, ?, ?, ?, ?, ?)";
         
         PreparedStatement pst = Conexão.getPreparedStatement(sql);
         
