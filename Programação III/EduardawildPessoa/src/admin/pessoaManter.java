@@ -20,6 +20,7 @@ public class pessoaManter extends javax.swing.JFrame {
     
     private void Limpar ()
     {
+        //oi
         txtCod.setText("");
         txtNome.setText("");
         cboSexo.setSelectedIndex(0);
