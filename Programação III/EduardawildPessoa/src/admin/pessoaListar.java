@@ -1,5 +1,6 @@
 package admin;
 
+import dao.PessoaDao;
     import java.util.ArrayList;
     import java.util.List;
     import javax.swing.table.DefaultTableModel;
@@ -10,6 +11,10 @@ public class pessoaListar extends javax.swing.JFrame {
     public pessoaListar() {
         initComponents();
         
+        PessoaDao dao = new PessoaDao();
+        List<Pessoa> lista = dao.listar();
+        
+        /*
         List<Pessoa> lista = new ArrayList<Pessoa>();
         
         Pessoa item = new Pessoa();
@@ -32,6 +37,7 @@ public class pessoaListar extends javax.swing.JFrame {
         item.setNome("Maria");
         item.setSexo("Feminino");
         lista.add(item);
+        */
         
         //Pega o modelo da tabela
         DefaultTableModel modelo = (DefaultTableModel)tabela.getModel();

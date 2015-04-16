@@ -1,4 +1,5 @@
 package admin;
+import dao.CidadeDao;
     import java.util.ArrayList;
     import java.util.List;
     import javax.swing.table.DefaultTableModel;
@@ -8,8 +9,10 @@ public class cidadeListar extends javax.swing.JFrame {
     public cidadeListar() { 
         initComponents();
         
-        List<Cidade> lista = new ArrayList<Cidade>();
+        CidadeDao dao = new CidadeDao();
+        List<Cidade> lista = dao.listar();
         
+        /*
         Cidade item = new Cidade();
         
         item.setCidcod(1);
@@ -27,6 +30,7 @@ public class cidadeListar extends javax.swing.JFrame {
         item.setCidcod(3);
         item.setCidnome("Porto Alegre");
         lista.add(item);
+        */
         
         DefaultTableModel modelo = (DefaultTableModel)tabela.getModel();
         

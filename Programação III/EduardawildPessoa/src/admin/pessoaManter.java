@@ -1,8 +1,10 @@
 package admin;
+    import dao.PessoaDao;
     import java.util.ArrayList;
     import java.util.List;
     import javax.swing.JOptionPane;
     import modelo.Pessoa;
+
 public class pessoaManter extends javax.swing.JFrame {
 
     private List <Pessoa> lista; //criando a lista
@@ -11,7 +13,8 @@ public class pessoaManter extends javax.swing.JFrame {
     public pessoaManter() 
     {
         initComponents();
-        lista = new ArrayList<Pessoa>(); //inicializando a lista 
+        PessoaDao dao = new PessoaDao();
+        lista = dao.listar();
         posicao = 0;
     }
     
@@ -107,6 +110,8 @@ public class pessoaManter extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("CÓDIGO:");
+
+        txtCod.setEditable(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("NOME:");
@@ -241,7 +246,7 @@ public class pessoaManter extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(cboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61)
+                .addGap(117, 117, 117)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
         );
@@ -252,35 +257,30 @@ public class pessoaManter extends javax.swing.JFrame {
     private void botaoCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadActionPerformed
         Pessoa item = new Pessoa(); 
         
-            if (txtCod.getText().isEmpty() || txtNome.getText().isEmpty() || cboSexo.getSelectedIndex()==0) //index é posição e item é texto
+            if (txtNome.getText().isEmpty() || cboSexo.getSelectedIndex()==0) //index é posição e item é texto
             {
                 JOptionPane.showMessageDialog(rootPane,"Preencher todos os campos!");
             }
             else
-            {   
-                Boolean deu = false;
-                try 
-                {
-                    item.setCodigo(Integer.parseInt(txtCod.getText()));
-                    deu = true;
-                }
-                catch (Exception ex)
-                {
-                    deu = false;
-                    JOptionPane.showMessageDialog(rootPane, "O CÓDIGO É EM NÚMERO");
-                }
-                
-                if (deu == true)
-                {
+            {
                     item.setNome(txtNome.getText());
                     item.setSexo(cboSexo.getSelectedItem().toString());
         
-                    JOptionPane.showMessageDialog(rootPane,"Cadastrado com sucesso!");
-                    lista.add(item);
+                    PessoaDao dao = new PessoaDao();
+                    
+                    Boolean deucerto = dao.inserir(item);
+                    
+                    if (deucerto == true)
+                    {
+                        JOptionPane.showMessageDialog(rootPane,"Cadastrado com sucesso!");
+                    }
+                    else 
+                    {
+                        JOptionPane.showMessageDialog(rootPane,"Erro ao cadastrar!");
+                    }
+                    
                     posicao ++;
-                    Limpar ();
-                }
-                
+                    Limpar ();               
             }    
     }//GEN-LAST:event_botaoCadActionPerformed
 

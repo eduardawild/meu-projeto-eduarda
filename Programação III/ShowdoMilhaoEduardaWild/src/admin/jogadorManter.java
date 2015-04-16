@@ -4,6 +4,7 @@ package admin;
     import java.util.List;
     import javax.swing.JOptionPane;
     import modelo.Jogador;
+
 public class jogadorManter extends javax.swing.JFrame {
 
     private List<Jogador> lista;

@@ -1,4 +1,5 @@
 package admin;
+import dao.CidadeDao;
     import java.util.ArrayList;
     import java.util.List;
     import javax.swing.JOptionPane;
@@ -11,7 +12,8 @@ public class cidadeManter extends javax.swing.JFrame {
     public cidadeManter() 
     {
         initComponents();
-        lista = new ArrayList<Cidade>();
+        CidadeDao dao = new CidadeDao();
+        lista = dao.listar();
         posicao = 0;
     }
     
@@ -53,6 +55,13 @@ public class cidadeManter extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("NOME:");
+
+        txtcod.setEditable(false);
+        txtcod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcodActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Navegação"));
 
@@ -236,33 +245,32 @@ public class cidadeManter extends javax.swing.JFrame {
     private void botaoInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoInserirActionPerformed
         Cidade item = new Cidade ();
         
-        if (txtcod.getText().isEmpty() || txtnome.getText().isEmpty()) 
+        if (txtnome.getText().isEmpty()) 
         {
             JOptionPane.showMessageDialog(rootPane,"Preencher todos os campos!");
         }
         else
-        {
-                Boolean deu = false;
-                try 
-                {
-                    item.setCidcod(Integer.parseInt(txtcod.getText()));
-                    deu = true;
-                }
-                catch (Exception ex)
-                {
-                    deu = false;
-                    JOptionPane.showMessageDialog(rootPane, "O CÓDIGO É EM NÚMERO");
-                }
-                
-                if (deu == true)
-                {
-                    item.setCidnome(txtnome.getText());
+        { 
+            item.setCidnome(txtnome.getText());
                    
-                    JOptionPane.showMessageDialog(rootPane,"Cadastrado com sucesso!");
-                    lista.add(item);
-                    posicao ++;
-                    Limpar ();
-                }
+            JOptionPane.showMessageDialog(rootPane,"Cadastrado com sucesso!");
+            
+            CidadeDao dao = new CidadeDao();
+            
+            Boolean deucerto = dao.inserir(item);
+            
+            if (deucerto == true)
+            {
+                JOptionPane.showMessageDialog(rootPane,"Cadastrado com sucesso!");
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(rootPane,"Erro ao cadastrar!");
+            }
+            
+            posicao ++;
+            Limpar ();
+                
         }
         
     }//GEN-LAST:event_botaoInserirActionPerformed
@@ -400,6 +408,10 @@ public class cidadeManter extends javax.swing.JFrame {
         tela.setVisible(true);
         tela.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_botaoListagemActionPerformed
+
+    private void txtcodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcodActionPerformed
 
     public static void main(String args[]) {
         
