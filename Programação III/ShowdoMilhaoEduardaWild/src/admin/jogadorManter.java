@@ -286,8 +286,7 @@ public class jogadorManter extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane,"Erro ao cadastrar!");
             }
             
-            lista.add(item);
-            posicao ++;
+            lista = dao.listar();
             Limpar ();               
         }
     }//GEN-LAST:event_botaoInserirActionPerformed

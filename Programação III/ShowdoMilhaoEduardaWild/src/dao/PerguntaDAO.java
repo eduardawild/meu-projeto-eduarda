@@ -73,4 +73,28 @@ public class PerguntaDAO {
         }
         return lista;
     }
+    
+    public Boolean remover (Pergunta pergunta)
+    {
+        Boolean retorno;
+        
+        String sql = "DELETE FROM pergunta WHERE id = ?";
+        
+        PreparedStatement pst = Conexão.getPreparedStatement(sql);
+        
+        try
+        {
+            pst.setInt(1, pergunta.getId());
+         
+            pst.executeUpdate();
+            retorno = true;
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        
+        return retorno;
+    }
 }

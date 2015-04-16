@@ -395,15 +395,29 @@ public class perguntaManter extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoLimparActionPerformed
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        if (txtEnunciado.getText().isEmpty()==false)
+        if (txtId.getText().isEmpty()==false)
         {
-            lista.remove(lista.get(posicao));
+            //instanciando a classe de acesso a dados JogadorDAO       
+            PerguntaDAO dao = new PerguntaDAO();
+            
+            //chamo o inserir
+            boolean deucerto = dao.remover(lista.get(posicao));
+            
+            if (deucerto == true)
+            {
+                JOptionPane.showMessageDialog(rootPane,"Excluído com sucesso!");
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(rootPane,"Erro ao excluir!");
+            }
+            lista = dao.listar();
             Limpar();
         }
-
+        
         else
         {
-
+            
         }
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
