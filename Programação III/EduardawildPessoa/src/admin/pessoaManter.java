@@ -279,7 +279,7 @@ public class pessoaManter extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(rootPane,"Erro ao cadastrar!");
                     }
                     
-                    posicao ++;
+                    lista = dao.listar();
                     Limpar ();               
             }    
     }//GEN-LAST:event_botaoCadActionPerformed
@@ -291,7 +291,20 @@ public class pessoaManter extends javax.swing.JFrame {
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
         if (txtCod.getText().isEmpty()==false)
         {
-            lista.remove(lista.get(posicao));
+            PessoaDao dao = new PessoaDao();
+            
+            //chamo o inserir
+            boolean deucerto = dao.remover(lista.get(posicao));
+            
+            if (deucerto == true)
+            {
+                JOptionPane.showMessageDialog(rootPane,"Excluído com sucesso!");
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(rootPane,"Erro ao excluir!");
+            }
+            lista = dao.listar();
             Limpar();
         }
         

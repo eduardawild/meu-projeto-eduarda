@@ -252,8 +252,6 @@ public class cidadeManter extends javax.swing.JFrame {
         else
         { 
             item.setCidnome(txtnome.getText());
-                   
-            JOptionPane.showMessageDialog(rootPane,"Cadastrado com sucesso!");
             
             CidadeDao dao = new CidadeDao();
             
@@ -268,9 +266,8 @@ public class cidadeManter extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane,"Erro ao cadastrar!");
             }
             
-            posicao ++;
-            Limpar ();
-                
+            lista = dao.listar();
+            Limpar ();               
         }
         
     }//GEN-LAST:event_botaoInserirActionPerformed
@@ -278,10 +275,22 @@ public class cidadeManter extends javax.swing.JFrame {
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
         if (txtcod.getText().isEmpty()==false)
         {
-            lista.remove(lista.get(posicao));
+            CidadeDao dao = new CidadeDao();
+            
+            //chamo o inserir
+            boolean deucerto = dao.remover(lista.get(posicao));
+            
+            if (deucerto == true)
+            {
+                JOptionPane.showMessageDialog(rootPane,"Excluído com sucesso!");
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(rootPane,"Erro ao excluir!");
+            }
+            lista = dao.listar();
             Limpar();
-        }
-        
+        }       
         else
         {
             

@@ -62,4 +62,28 @@ public class CidadeDao {
         
         return lista;
     }
+    
+    public Boolean remover(Cidade cidade)
+    {
+        Boolean retorno;
+        
+        String sql = "DELETE FROM cidade WHERE id = ?";
+        
+        PreparedStatement pst = Conexão.getPreparedStatement(sql);
+        
+        try 
+        {
+            pst.setInt(1, cidade.getCidcod());
+            
+            pst.executeUpdate();
+            retorno = true;
+        } 
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        
+        return retorno;
+    }
 }

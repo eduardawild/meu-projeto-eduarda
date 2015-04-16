@@ -66,4 +66,28 @@ public class PessoaDao {
         return lista;
     }
     
+    public Boolean remover (Pessoa pessoa)
+    {
+        Boolean retorno;
+        
+        String sql = "DELETE FROM pessoa WHERE id = ?";
+        
+        PreparedStatement pst = Conexão.getPreparedStatement(sql);
+        
+        try 
+        {
+            pst.setInt(1, pessoa.getCodigo());
+            
+            pst.executeUpdate();
+            retorno = true;
+        }
+        
+        catch (Exception ex) 
+        {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
+    }
+    
 }
