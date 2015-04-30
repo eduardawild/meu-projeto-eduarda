@@ -39,7 +39,7 @@ public class CidadeDao {
     {
         List<Cidade> lista = new ArrayList<Cidade>();
         
-        String sql = "SELECT * FROM cidade";
+        String sql = "SELECT * FROM cidade ORDER BY id";
         
         PreparedStatement pst = Conexão.getPreparedStatement(sql);
         
@@ -74,6 +74,31 @@ public class CidadeDao {
         try 
         {
             pst.setInt(1, cidade.getCidcod());
+            
+            pst.executeUpdate();
+            retorno = true;
+        } 
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        
+        return retorno;
+    }
+    
+    public Boolean atualizar (Cidade cidade)
+    {
+        Boolean retorno;
+        
+        String sql = "UPDATE cidade SET nome = ? WHERE id = ?";
+        
+        PreparedStatement pst = Conexão.getPreparedStatement(sql);
+        
+        try 
+        {
+            pst.setString(1, cidade.getCidnome());
+            pst.setInt(2, cidade.getCidcod());
             
             pst.executeUpdate();
             retorno = true;

@@ -40,7 +40,7 @@ public class PessoaDao {
     {
         List<Pessoa> lista = new ArrayList<Pessoa>();
         
-        String sql = "SELECT * FROM pessoa";
+        String sql = "SELECT * FROM pessoa ORDER BY id";
         
         PreparedStatement pst = Conexão.getPreparedStatement(sql);
         
@@ -77,6 +77,32 @@ public class PessoaDao {
         try 
         {
             pst.setInt(1, pessoa.getCodigo());
+            
+            pst.executeUpdate();
+            retorno = true;
+        }
+        
+        catch (Exception ex) 
+        {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        return retorno;
+    }
+    
+    public Boolean atualizar (Pessoa pessoa)
+    {
+        Boolean retorno;
+        
+        String sql = "UPDATE PESSOA SET nome = ?, sexo = ? WHERE id = ?";
+        
+        PreparedStatement pst = Conexão.getPreparedStatement(sql);
+        
+        try 
+        {
+            pst.setString(1, pessoa.getNome());
+            pst.setString(2, pessoa.getSexo());
+            pst.setInt(3, pessoa.getCodigo());
             
             pst.executeUpdate();
             retorno = true;

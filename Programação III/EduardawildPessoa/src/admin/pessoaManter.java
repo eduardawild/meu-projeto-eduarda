@@ -46,6 +46,7 @@ public class pessoaManter extends javax.swing.JFrame {
         botaoConsultar = new javax.swing.JButton();
         botaoLimpar = new javax.swing.JButton();
         botaoListagem = new javax.swing.JButton();
+        botaoAtualizar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -158,24 +159,33 @@ public class pessoaManter extends javax.swing.JFrame {
             }
         });
 
+        botaoAtualizar.setText("ATUALIZAR");
+        botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAtualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(botaoCad)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(botaoExcluir)
-                .addGap(58, 58, 58)
-                .addComponent(botaoConsultar)
-                .addGap(37, 37, 37)
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(botaoCad)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoExcluir)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoConsultar)
+                        .addGap(15, 15, 15))
+                    .addComponent(botaoListagem))
+                .addGap(18, 18, 18)
                 .addComponent(botaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(botaoListagem)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(botaoAtualizar)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,7 +195,8 @@ public class pessoaManter extends javax.swing.JFrame {
                     .addComponent(botaoCad)
                     .addComponent(botaoExcluir)
                     .addComponent(botaoConsultar)
-                    .addComponent(botaoLimpar))
+                    .addComponent(botaoLimpar)
+                    .addComponent(botaoAtualizar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(botaoListagem)
                 .addContainerGap())
@@ -220,7 +231,7 @@ public class pessoaManter extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 4, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -487,6 +498,35 @@ public class pessoaManter extends javax.swing.JFrame {
         tela.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_botaoListagemActionPerformed
 
+    private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
+        Pessoa item = new Pessoa();
+        
+        if (txtCod.getText().isEmpty()==false)
+        {
+            item.setNome(txtNome.getText());
+            item.setCodigo(Integer.parseInt(txtCod.getText()));
+            item.setSexo(cboSexo.getSelectedItem().toString());
+            
+            PessoaDao dao = new PessoaDao();
+            Boolean deucerto = dao.atualizar(item);
+            
+            if (deucerto == true)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Registro atualizado com sucesso!");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(rootPane, "Registro atualizado com sucesso!");
+            }
+            
+            lista = dao.listar();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(rootPane, "Registro não informado");
+        }
+    }//GEN-LAST:event_botaoAtualizarActionPerformed
+
     public static void main(String args[]) {
        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -520,6 +560,7 @@ public class pessoaManter extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAnterior;
+    private javax.swing.JButton botaoAtualizar;
     private javax.swing.JButton botaoCad;
     private javax.swing.JButton botaoConsultar;
     private javax.swing.JButton botaoExcluir;
