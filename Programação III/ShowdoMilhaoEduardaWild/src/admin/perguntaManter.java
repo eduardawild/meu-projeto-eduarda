@@ -41,6 +41,7 @@ public class perguntaManter extends javax.swing.JFrame {
         botaoExcluir = new javax.swing.JButton();
         botaoConsultar = new javax.swing.JButton();
         botaoListagemPer = new javax.swing.JButton();
+        botaoAtualizar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -105,23 +106,33 @@ public class perguntaManter extends javax.swing.JFrame {
             }
         });
 
+        botaoAtualizar.setText("Atualizar");
+        botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAtualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(botaoInserir)
-                .addGap(38, 38, 38)
-                .addComponent(botaoLimpar)
-                .addGap(39, 39, 39)
-                .addComponent(botaoExcluir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoConsultar)
-                .addGap(26, 26, 26))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addComponent(botaoListagemPer)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(botaoInserir)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoLimpar)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoExcluir)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoConsultar)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoAtualizar))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(botaoListagemPer)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -132,7 +143,8 @@ public class perguntaManter extends javax.swing.JFrame {
                     .addComponent(botaoInserir)
                     .addComponent(botaoLimpar)
                     .addComponent(botaoExcluir)
-                    .addComponent(botaoConsultar))
+                    .addComponent(botaoConsultar)
+                    .addComponent(botaoAtualizar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(botaoListagemPer))
         );
@@ -732,6 +744,39 @@ public class perguntaManter extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botaoUltimoActionPerformed
 
+    private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
+        Pergunta pergunta = new Pergunta();
+        
+        if (txtId.getText().isEmpty()==false)
+        {
+            pergunta.setId(Integer.parseInt(txtId.getText()));
+            pergunta.setEnunciado(txtEnunciado.getText());
+            pergunta.setA(txtA.getText());
+            pergunta.setB(txtB.getText());
+            pergunta.setC(txtC.getText());
+            pergunta.setD(txtD.getText());
+            pergunta.setCerta(cboCerta.getSelectedItem().toString());
+            pergunta.setNivel(Integer.parseInt(cboNivel.getSelectedItem().toString()));
+            PerguntaDAO dao = new PerguntaDAO();
+            Boolean deucerto = dao.atualizar(pergunta);
+            
+            if (deucerto == true)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Registro atualizado com sucesso!");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(rootPane, "Erro ao atualizar registro!");
+            }
+            
+            lista = dao.listar();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(rootPane, "Registro não informado");
+        }
+    }//GEN-LAST:event_botaoAtualizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -769,6 +814,7 @@ public class perguntaManter extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAnterior;
+    private javax.swing.JButton botaoAtualizar;
     private javax.swing.JButton botaoConsultar;
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoInserir;

@@ -448,7 +448,7 @@ public class cidadeManter extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(rootPane, "Registro atualizado com sucesso!");
+                JOptionPane.showMessageDialog(rootPane, "Erro ao atualizar registro!");
             }
             
             lista = dao.listar();

@@ -44,6 +44,7 @@ public class jogadorManter extends javax.swing.JFrame {
         botaoExcluir = new javax.swing.JButton();
         botaoConsultar = new javax.swing.JButton();
         botaoListagemJog = new javax.swing.JButton();
+        botaoAtualizar = new javax.swing.JButton();
         txtEmail = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
         txtLogin = new javax.swing.JTextField();
@@ -174,24 +175,37 @@ public class jogadorManter extends javax.swing.JFrame {
             }
         });
 
+        botaoAtualizar.setBackground(new java.awt.Color(0, 0, 204));
+        botaoAtualizar.setForeground(new java.awt.Color(255, 255, 255));
+        botaoAtualizar.setText("Atualizar");
+        botaoAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAtualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(botaoInserir)
-                .addGap(38, 38, 38)
-                .addComponent(botaoLimpar)
-                .addGap(39, 39, 39)
-                .addComponent(botaoExcluir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoConsultar)
-                .addGap(26, 26, 26))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(botaoListagemJog)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 10, Short.MAX_VALUE)
+                        .addComponent(botaoInserir)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoLimpar)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoExcluir)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoConsultar)
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoAtualizar))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(botaoListagemJog)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +215,8 @@ public class jogadorManter extends javax.swing.JFrame {
                     .addComponent(botaoInserir)
                     .addComponent(botaoLimpar)
                     .addComponent(botaoExcluir)
-                    .addComponent(botaoConsultar))
+                    .addComponent(botaoConsultar)
+                    .addComponent(botaoAtualizar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(botaoListagemJog))
         );
@@ -212,20 +227,21 @@ public class jogadorManter extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail)
-                            .addComponent(txtSenha)
-                            .addComponent(txtLogin)))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4))
+                            .addGap(48, 48, 48)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtEmail)
+                                .addComponent(txtSenha)
+                                .addComponent(txtLogin)))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -447,6 +463,33 @@ public class jogadorManter extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botaoUltimoActionPerformed
 
+    private void botaoAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAtualizarActionPerformed
+        Jogador jogador = new Jogador();
+        
+        if (txtLogin.getText().isEmpty()==false)
+        {
+            jogador.setEmail(txtEmail.getText());
+            jogador.setSenha(txtSenha.getText());
+            JogadorDAO dao = new JogadorDAO();
+            Boolean deucerto = dao.atualizar(jogador);
+            
+            if (deucerto == true)
+            {
+                JOptionPane.showMessageDialog(rootPane, "Registro atualizado com sucesso!");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(rootPane, "Erro ao atualizar registro!");
+            }
+            
+            lista = dao.listar();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(rootPane, "Registro não informado");
+        }        
+    }//GEN-LAST:event_botaoAtualizarActionPerformed
+
     public static void main(String args[]) {
         
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -480,6 +523,7 @@ public class jogadorManter extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAnterior;
+    private javax.swing.JButton botaoAtualizar;
     private javax.swing.JButton botaoConsultar;
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoInserir;

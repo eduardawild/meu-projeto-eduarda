@@ -97,4 +97,35 @@ public class PerguntaDAO {
         
         return retorno;
     }
+    
+    public Boolean atualizar (Pergunta pergunta)
+    {
+        Boolean retorno;
+        
+        String sql = "UPDATE pergunta SET enunciado = ?, a = ?, b = ?, c = ?, d = ?, certa = ?, nivel = ? WHERE id = ?";
+        
+        PreparedStatement pst = Conexão.getPreparedStatement(sql);
+        
+        try 
+        {
+            pst.setString(1, pergunta.getEnunciado());
+            pst.setString(2, pergunta.getA());
+            pst.setString(3, pergunta.getB());
+            pst.setString(4, pergunta.getC());
+            pst.setString(5, pergunta.getD());
+            pst.setString(6, pergunta.getCerta());
+            pst.setInt(7, pergunta.getNivel());
+            pst.setInt(8, pergunta.getId());
+            
+            pst.executeUpdate();
+            retorno = true;
+        } 
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+            retorno = false;
+        }
+        
+        return retorno;
+    }
 }
