@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import modelo.Jogador;
 
 public class JogadorDAO {
@@ -97,15 +98,15 @@ public class JogadorDAO {
     {
         Boolean retorno;
         
-        String sql = "UPDATE jogador SET senha = ?, email = ? WHERE login = ?";
+        String sql = "UPDATE JOGADOR SET SENHA = ?, EMAIL = ? WHERE LOGIN = ?";
         
         PreparedStatement pst = Conexão.getPreparedStatement(sql);
         
         try 
         {
-            pst.setString(2, jogador.getSenha());
-            pst.setString(3, jogador.getEmail());
-            pst.setString(4, jogador.getLogin());
+            pst.setString(1, jogador.getSenha());
+            pst.setString(2, jogador.getEmail());
+            pst.setString(3, jogador.getLogin());
             
             pst.executeUpdate();
             retorno = true;
