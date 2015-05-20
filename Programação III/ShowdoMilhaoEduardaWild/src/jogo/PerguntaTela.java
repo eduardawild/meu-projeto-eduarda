@@ -146,7 +146,7 @@ public class PerguntaTela extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(radio3)
-                .addContainerGap(421, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +156,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 500, 40));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 480, 40));
 
         jPanel4.setBackground(new java.awt.Color(255, 0, 0));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -179,7 +179,7 @@ public class PerguntaTela extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(radio1)
-                .addContainerGap(421, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +189,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 500, 40));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 480, 40));
 
         jPanel23.setBackground(new java.awt.Color(255, 0, 0));
         jPanel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -212,7 +212,7 @@ public class PerguntaTela extends javax.swing.JFrame {
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(radio2)
-                .addContainerGap(421, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +222,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 500, 40));
+        getContentPane().add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 480, 40));
 
         jPanel24.setBackground(new java.awt.Color(255, 0, 0));
         jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -240,7 +240,7 @@ public class PerguntaTela extends javax.swing.JFrame {
             .addGroup(jPanel24Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(radio4)
-                .addContainerGap(421, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +250,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 500, -1));
+        getContentPane().add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 480, -1));
 
         jPanel26.setBackground(new java.awt.Color(0, 0, 255));
         jPanel26.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -263,7 +263,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("PARAR");
-        jPanel26.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, -1, -1));
+        jPanel26.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, -1, -1));
 
         lblNome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
@@ -408,7 +408,7 @@ public class PerguntaTela extends javax.swing.JFrame {
 
         jPanel5.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 70, 60));
 
-        jPanel26.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 290, 100, 60));
+        jPanel26.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 300, 100, 60));
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 0));
         jPanel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
@@ -504,7 +504,7 @@ public class PerguntaTela extends javax.swing.JFrame {
 
         jPanel15.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 70, 60));
 
-        jPanel26.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 100, 60));
+        jPanel26.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 300, 100, 60));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 0));
         jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
@@ -528,19 +528,19 @@ public class PerguntaTela extends javax.swing.JFrame {
 
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 70, 60));
 
-        jPanel26.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 100, 60));
+        jPanel26.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 100, 60));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("ACERTAR");
-        jPanel26.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, -1, -1));
+        jPanel26.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 360, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("ERRAR");
-        jPanel26.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
+        jPanel26.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, -1, -1));
 
-        getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 380));
+        getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
