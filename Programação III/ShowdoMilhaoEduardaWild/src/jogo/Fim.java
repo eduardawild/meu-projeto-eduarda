@@ -29,8 +29,9 @@ public class Fim extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lblFim = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -41,13 +42,17 @@ public class Fim extends javax.swing.JFrame {
         jLabel2.setText("Você ganhou X reais");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 340, 50));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/silviosantos.jpg"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 440, 280));
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setText("FIM!!!");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+
+        lblFim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/dinheiro.jpg"))); // NOI18N
+        lblFim.setText("fdfd");
+        getContentPane().add(lblFim, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 390, 250));
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -90,6 +95,7 @@ public class Fim extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblFim;
     // End of variables declaration//GEN-END:variables
 }

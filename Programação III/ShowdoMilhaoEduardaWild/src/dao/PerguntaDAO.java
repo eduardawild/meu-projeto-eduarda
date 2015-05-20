@@ -129,17 +129,19 @@ public class PerguntaDAO {
         return retorno;
     }
     
-    public List<Pergunta> listarNivel1 ()
+    public List<Pergunta> listarNivel (Integer nivel)
     {
         List <Pergunta> lista = new ArrayList<Pergunta>();
         
-        String sql = "SELECT * FROM pergunta WHERE nivel = 1 ORDER BY RANDOM() LIMIT 3";
+        String sql = "SELECT * FROM pergunta WHERE nivel = ? ORDER BY RANDOM() LIMIT 3";
         
         PreparedStatement pst = Conexão.getPreparedStatement(sql);
         
         try
         {
-           ResultSet res = pst.executeQuery();
+            pst.setInt(1, nivel);
+            
+            ResultSet res = pst.executeQuery();
             
             while (res.next())
             {
@@ -161,4 +163,5 @@ public class PerguntaDAO {
         }
         return lista;
     }
+  
 }
