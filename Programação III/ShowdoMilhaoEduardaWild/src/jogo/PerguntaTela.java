@@ -5,12 +5,16 @@ import dao.PerguntaDAO;
 import java.util.List;
 import javax.swing.ButtonGroup;
 import modelo.Jogador;
+import modelo.JogoCompleto;
 import modelo.Pergunta;
 
 public class PerguntaTela extends javax.swing.JFrame {
 
     private Jogador jogador;
-
+    private Double premio;
+    private Integer nivel;
+    ButtonGroup bg1;
+    
     public Jogador getJogador() {
         return jogador;
     }
@@ -21,10 +25,7 @@ public class PerguntaTela extends javax.swing.JFrame {
     
     List<Pergunta> perguntas; //pergunta do jogo
     Pergunta perguntaAtual; //pergunta que está sendo exibida no momento
-       
-    ButtonGroup bg1;
-    private Integer nivel;
-    
+ 
     public PerguntaTela() {
         initComponents();
         nivel = 1;
@@ -68,7 +69,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         botaoPular = new javax.swing.JButton();
         botaoCartas = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        txtAcertar = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -84,7 +85,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
+        txtParar = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
@@ -100,7 +101,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         jPanel22 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        txtErrar = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -127,7 +128,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         jPanel3.add(lblPerg, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
         jPanel3.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 80, 610, 280));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 540, 80));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 580, 80));
 
         jPanel1.setBackground(new java.awt.Color(255, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -145,7 +146,7 @@ public class PerguntaTela extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(radio3)
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addContainerGap(421, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +156,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 410, 40));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 500, 40));
 
         jPanel4.setBackground(new java.awt.Color(255, 0, 0));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -178,7 +179,7 @@ public class PerguntaTela extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(radio1)
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addContainerGap(421, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +189,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 410, 40));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 500, 40));
 
         jPanel23.setBackground(new java.awt.Color(255, 0, 0));
         jPanel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -211,7 +212,7 @@ public class PerguntaTela extends javax.swing.JFrame {
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(radio2)
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addContainerGap(421, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,7 +222,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 410, 40));
+        getContentPane().add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 500, 40));
 
         jPanel24.setBackground(new java.awt.Color(255, 0, 0));
         jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -239,7 +240,7 @@ public class PerguntaTela extends javax.swing.JFrame {
             .addGroup(jPanel24Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(radio4)
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addContainerGap(421, Short.MAX_VALUE))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +250,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 410, -1));
+        getContentPane().add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 500, -1));
 
         jPanel26.setBackground(new java.awt.Color(0, 0, 255));
         jPanel26.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -262,7 +263,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("PARAR");
-        jPanel26.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, -1, -1));
+        jPanel26.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, -1, -1));
 
         lblNome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
@@ -272,7 +273,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 lblNomeMouseClicked(evt);
             }
         });
-        jPanel26.add(lblNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, -1, -1));
+        jPanel26.add(lblNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, -1));
 
         botaoConfirmar.setBackground(new java.awt.Color(51, 102, 255));
         botaoConfirmar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -283,7 +284,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 botaoConfirmarActionPerformed(evt);
             }
         });
-        jPanel26.add(botaoConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, 40));
+        jPanel26.add(botaoConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, 40));
 
         botaoParar.setBackground(new java.awt.Color(51, 102, 255));
         botaoParar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -294,10 +295,10 @@ public class PerguntaTela extends javax.swing.JFrame {
                 botaoPararActionPerformed(evt);
             }
         });
-        jPanel26.add(botaoParar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 90, 40));
+        jPanel26.add(botaoParar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 90, 40));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/silvioo.jpg"))); // NOI18N
-        jPanel26.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 160, 130));
+        jPanel26.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 160, 130));
 
         jPanel2.setBackground(new java.awt.Color(51, 102, 255));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
@@ -311,17 +312,17 @@ public class PerguntaTela extends javax.swing.JFrame {
         botaoCartas.setContentAreaFilled(false);
         jPanel2.add(botaoCartas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 60, 70));
 
-        jPanel26.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 230, 110));
+        jPanel26.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 230, 110));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 0));
         jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         jPanel5.setToolTipText("");
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel8.setText("2 MIL");
-        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        txtAcertar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtAcertar.setForeground(new java.awt.Color(255, 0, 0));
+        txtAcertar.setText("2 MIL");
+        jPanel5.add(txtAcertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 0));
         jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
@@ -407,17 +408,17 @@ public class PerguntaTela extends javax.swing.JFrame {
 
         jPanel5.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 70, 60));
 
-        jPanel26.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 290, 70, 60));
+        jPanel26.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 290, 100, 60));
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 0));
         jPanel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         jPanel15.setToolTipText("");
         jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel19.setText("1 MIL");
-        jPanel15.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        txtParar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtParar.setForeground(new java.awt.Color(255, 0, 0));
+        txtParar.setText("1 MIL");
+        jPanel15.add(txtParar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 0));
         jPanel16.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
@@ -503,17 +504,17 @@ public class PerguntaTela extends javax.swing.JFrame {
 
         jPanel15.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 70, 60));
 
-        jPanel26.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 70, 60));
+        jPanel26.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 100, 60));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 0));
         jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         jPanel7.setToolTipText("");
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel11.setText("500");
-        jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        txtErrar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtErrar.setForeground(new java.awt.Color(255, 0, 0));
+        txtErrar.setText("500");
+        jPanel7.add(txtErrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 0));
         jPanel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
@@ -527,25 +528,34 @@ public class PerguntaTela extends javax.swing.JFrame {
 
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 70, 60));
 
-        jPanel26.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 70, 60));
+        jPanel26.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 100, 60));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("ACERTAR");
-        jPanel26.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 350, -1, -1));
+        jPanel26.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("ERRAR");
-        jPanel26.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, -1, -1));
+        jPanel26.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
 
-        getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 380));
+        getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         lblNome.setText(jogador.getLogin());
+        
+        //Começar o jogo
+        JogoCompleto completo = new JogoCompleto();
+        completo.setJogador(jogador);
+        premio = 2500.00;
+        
+        txtErrar.setText(" 0 ");
+        txtParar.setText(" 0 ");
+        txtAcertar.setText(premio.toString());
         
         Audio audio = new Audio();
         //para tocar a música
@@ -589,6 +599,50 @@ public class PerguntaTela extends javax.swing.JFrame {
 
     private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
         PerguntaDAO dao = new PerguntaDAO();
+        JogoCompleto completo = new JogoCompleto();
+        Boolean acertou = false;
+        String certa = perguntaAtual.getCerta(); //A, B, C ou D
+        
+        if (certa.equalsIgnoreCase("A") && radio1.isSelected())
+        { 
+            acertou = true;
+        }
+        else if (certa.equalsIgnoreCase("B") && radio2.isSelected())
+        {
+            acertou = true;
+        }
+        else if (certa.equalsIgnoreCase("C") && radio3.isSelected())
+        {
+            acertou = true;       
+        }
+        else if (certa.equalsIgnoreCase("D") && radio4.isSelected())
+        {
+            acertou = true;
+        }
+        else
+        {
+            acertou = false;
+        }
+        
+        if (acertou == true)
+        {
+            Audio audio = new Audio();   
+            audio.tocar("certa.wav");
+            
+            Double errou = premio/2;
+            txtErrar.setText(errou.toString());
+            txtParar.setText(premio.toString());
+            premio = premio + 2500;     
+            txtAcertar.setText(premio.toString());
+            completo.setGanhos(premio);
+           
+        }
+        else
+        {
+            Fim tela = new Fim();
+            tela.setVisible(true);
+        }
+    
         //elimina a pergunta que está sendo exibida
         perguntas.remove(0);
         
@@ -658,7 +712,6 @@ public class PerguntaTela extends javax.swing.JFrame {
     private javax.swing.JButton botaoParar;
     private javax.swing.JButton botaoPular;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -666,7 +719,6 @@ public class PerguntaTela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -677,7 +729,6 @@ public class PerguntaTela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -711,5 +762,8 @@ public class PerguntaTela extends javax.swing.JFrame {
     private javax.swing.JRadioButton radio2;
     private javax.swing.JRadioButton radio3;
     private javax.swing.JRadioButton radio4;
+    private javax.swing.JLabel txtAcertar;
+    private javax.swing.JLabel txtErrar;
+    private javax.swing.JLabel txtParar;
     // End of variables declaration//GEN-END:variables
 }
