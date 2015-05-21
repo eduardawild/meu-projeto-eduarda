@@ -127,8 +127,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 PerguntaTela tela = new PerguntaTela();                           
                 tela.setJogador(retorno);
                 tela.setVisible(true);
-                
-                
+                            
                 this.setVisible(false);
             }
         }

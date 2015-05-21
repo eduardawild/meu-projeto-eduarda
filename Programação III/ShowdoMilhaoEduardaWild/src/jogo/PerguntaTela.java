@@ -13,6 +13,7 @@ public class PerguntaTela extends javax.swing.JFrame {
     private Jogador jogador;
     private Double premio;
     private Integer nivel;
+    private Double errou;
     ButtonGroup bg1;
     
     public Jogador getJogador() {
@@ -25,7 +26,8 @@ public class PerguntaTela extends javax.swing.JFrame {
     
     List<Pergunta> perguntas; //pergunta do jogo
     Pergunta perguntaAtual; //pergunta que está sendo exibida no momento
- 
+    JogoCompleto completo;
+    
     public PerguntaTela() {
         initComponents();
         nivel = 1;
@@ -106,6 +108,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        quantotem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 255));
@@ -540,6 +543,9 @@ public class PerguntaTela extends javax.swing.JFrame {
         jLabel9.setText("ERRAR");
         jPanel26.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, -1, -1));
 
+        quantotem.setText("jLabel1");
+        jPanel26.add(quantotem, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
+
         getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 390));
 
         pack();
@@ -549,7 +555,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         lblNome.setText(jogador.getLogin());
         
         //Começar o jogo
-        JogoCompleto completo = new JogoCompleto();
+        completo = new JogoCompleto();
         completo.setJogador(jogador);
         premio = 2500.00;
         
@@ -594,12 +600,16 @@ public class PerguntaTela extends javax.swing.JFrame {
     }//GEN-LAST:event_lblNomeMouseClicked
 
     private void botaoPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPararActionPerformed
-        // TODO add your handling code here:
+        
+        Fim tela = new Fim ();
+        tela.setVisible(true);
+        this.setVisible(false);
+        
+        tela.setCompleto(completo);
     }//GEN-LAST:event_botaoPararActionPerformed
 
     private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
         PerguntaDAO dao = new PerguntaDAO();
-        JogoCompleto completo = new JogoCompleto();
         Boolean acertou = false;
         String certa = perguntaAtual.getCerta(); //A, B, C ou D
         
@@ -624,24 +634,59 @@ public class PerguntaTela extends javax.swing.JFrame {
             acertou = false;
         }
         
-        if (acertou == true)
+        
+        
+        
+        if (nivel==1)
         {
-            Audio audio = new Audio();   
-            audio.tocar("certa.wav");
+            if (acertou == true)
+            {
+                errou = premio/2;
+                txtErrar.setText(errou.toString());
+                txtParar.setText(premio.toString());
+                completo.setGanhos(premio);
+                premio = premio + 2500;     
+                txtAcertar.setText(premio.toString());
+                
+                quantotem.setText(completo.getGanhos().toString());
+            }
+            else
+            {
+                completo.setGanhos(errou);
             
-            Double errou = premio/2;
-            txtErrar.setText(errou.toString());
-            txtParar.setText(premio.toString());
-            premio = premio + 2500;     
-            txtAcertar.setText(premio.toString());
-            completo.setGanhos(premio);
-           
+                Fim tela = new Fim();
+                tela.setCompleto(completo);
+                tela.setVisible(true);
+            
+                this.setVisible(false);
+            }
         }
-        else
+        else if (nivel==2)
         {
-            Fim tela = new Fim();
-            tela.setVisible(true);
+            if (acertou == true)
+            {
+                errou = premio/2;
+                txtErrar.setText(errou.toString());
+                txtParar.setText(premio.toString());
+                completo.setGanhos(premio);
+                premio = premio + 5000;     
+                txtAcertar.setText(premio.toString());  
+                
+                quantotem.setText(completo.getGanhos().toString());
+            }
+            else
+            {
+                completo.setGanhos(errou);
+            
+                Fim tela = new Fim();
+                tela.setCompleto(completo);
+                tela.setVisible(true);
+            
+                this.setVisible(false);
+            }
         }
+        
+       
     
         //elimina a pergunta que está sendo exibida
         perguntas.remove(0);
@@ -652,6 +697,8 @@ public class PerguntaTela extends javax.swing.JFrame {
             if (nivel == 3)
             {
                 Fim fim = new Fim();
+                completo.setGanhos(1000000D);
+                fim.setCompleto(completo);
                 fim.setVisible(true);
                 this.setVisible(false);
                 return;
@@ -758,6 +805,7 @@ public class PerguntaTela extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblPerg;
+    private javax.swing.JLabel quantotem;
     private javax.swing.JRadioButton radio1;
     private javax.swing.JRadioButton radio2;
     private javax.swing.JRadioButton radio3;
