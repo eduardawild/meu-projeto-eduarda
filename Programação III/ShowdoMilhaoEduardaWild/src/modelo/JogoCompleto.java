@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Date;
+
 public class JogoCompleto {
 
     private Jogador jogador;
@@ -17,6 +19,7 @@ public class JogoCompleto {
         this.ganhos = 0.0;
     }
 
+    
     public Jogador getJogador() {
         return jogador;
     }

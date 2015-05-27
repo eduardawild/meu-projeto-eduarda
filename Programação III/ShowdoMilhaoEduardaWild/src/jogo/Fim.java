@@ -1,12 +1,16 @@
 package jogo;
 
+import dao.RankingDAO;
+import java.util.Date;
 import modelo.Jogador;
 import modelo.JogoCompleto;
+import modelo.Ranking;
 
 public class Fim extends javax.swing.JFrame {
 
     private JogoCompleto completo;
-
+    private RankingDAO dao;
+    
     public JogoCompleto getCompleto() {
         return completo;
     }
@@ -14,8 +18,7 @@ public class Fim extends javax.swing.JFrame {
     public void setCompleto(JogoCompleto completo) {
         this.completo = completo;
     }
-    
-   
+  
     public Fim() {
         initComponents();
     }
@@ -55,7 +58,7 @@ public class Fim extends javax.swing.JFrame {
         txtGanhoFinal.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         txtGanhoFinal.setForeground(new java.awt.Color(255, 0, 0));
         txtGanhoFinal.setText("X");
-        jPanel1.add(txtGanhoFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 30, 50));
+        jPanel1.add(txtGanhoFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 120, 50));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
@@ -73,8 +76,12 @@ public class Fim extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       
-        txtGanhoFinal.setText(completo.getGanhos().toString());      
+     txtGanhoFinal.setText(completo.getGanhos().toString()); 
+     
+     Ranking r = new Ranking();
+     r.setData(new Date());
+     r.setJogador(completo.getJogador());
+     dao.inserir(r);
     }//GEN-LAST:event_formWindowOpened
 
     public static void main(String args[]) {

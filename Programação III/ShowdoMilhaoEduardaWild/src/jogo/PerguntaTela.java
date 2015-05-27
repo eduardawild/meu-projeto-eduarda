@@ -53,23 +53,23 @@ public class PerguntaTela extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         lblPerg = new javax.swing.JLabel();
         jPanel25 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        radio3 = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
         radio1 = new javax.swing.JRadioButton();
-        jPanel23 = new javax.swing.JPanel();
-        radio2 = new javax.swing.JRadioButton();
+        jPanel1 = new javax.swing.JPanel();
+        radio3 = new javax.swing.JRadioButton();
         jPanel24 = new javax.swing.JPanel();
         radio4 = new javax.swing.JRadioButton();
+        jPanel23 = new javax.swing.JPanel();
+        radio2 = new javax.swing.JRadioButton();
         jPanel26 = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
         botaoConfirmar = new javax.swing.JButton();
         botaoParar = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         botaoPular = new javax.swing.JButton();
         botaoCartas = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         txtAcertar = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -133,34 +133,6 @@ public class PerguntaTela extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 580, 80));
 
-        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-
-        radio3.setBackground(new java.awt.Color(255, 0, 0));
-        radio3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        radio3.setForeground(new java.awt.Color(255, 255, 255));
-        radio3.setText("Opção 3");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(radio3)
-                .addContainerGap(401, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addComponent(radio3)
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 480, 40));
-
         jPanel4.setBackground(new java.awt.Color(255, 0, 0));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -182,7 +154,7 @@ public class PerguntaTela extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(radio1)
-                .addContainerGap(401, Short.MAX_VALUE))
+                .addContainerGap(381, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +164,63 @@ public class PerguntaTela extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 480, 40));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 460, 40));
+
+        jPanel1.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+
+        radio3.setBackground(new java.awt.Color(255, 0, 0));
+        radio3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        radio3.setForeground(new java.awt.Color(255, 255, 255));
+        radio3.setText("Opção 3");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(radio3)
+                .addContainerGap(381, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(8, Short.MAX_VALUE)
+                .addComponent(radio3)
+                .addContainerGap())
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 40));
+
+        jPanel24.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel24.setForeground(new java.awt.Color(255, 255, 255));
+
+        radio4.setBackground(new java.awt.Color(255, 0, 0));
+        radio4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        radio4.setForeground(new java.awt.Color(255, 255, 255));
+        radio4.setText("Opção 4");
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(radio4)
+                .addContainerGap(381, Short.MAX_VALUE))
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(radio4)
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 460, -1));
 
         jPanel23.setBackground(new java.awt.Color(255, 0, 0));
         jPanel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -215,7 +243,7 @@ public class PerguntaTela extends javax.swing.JFrame {
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(radio2)
-                .addContainerGap(401, Short.MAX_VALUE))
+                .addContainerGap(381, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,35 +253,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 480, 40));
-
-        jPanel24.setBackground(new java.awt.Color(255, 0, 0));
-        jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel24.setForeground(new java.awt.Color(255, 255, 255));
-
-        radio4.setBackground(new java.awt.Color(255, 0, 0));
-        radio4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        radio4.setForeground(new java.awt.Color(255, 255, 255));
-        radio4.setText("Opção 4");
-
-        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
-        jPanel24.setLayout(jPanel24Layout);
-        jPanel24Layout.setHorizontalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel24Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(radio4)
-                .addContainerGap(401, Short.MAX_VALUE))
-        );
-        jPanel24Layout.setVerticalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel24Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(radio4)
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 480, -1));
+        getContentPane().add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 40));
 
         jPanel26.setBackground(new java.awt.Color(0, 0, 255));
         jPanel26.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -300,9 +300,6 @@ public class PerguntaTela extends javax.swing.JFrame {
         });
         jPanel26.add(botaoParar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 90, 40));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/silvioo.jpg"))); // NOI18N
-        jPanel26.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 160, 130));
-
         jPanel2.setBackground(new java.awt.Color(51, 102, 255));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -315,7 +312,10 @@ public class PerguntaTela extends javax.swing.JFrame {
         botaoCartas.setContentAreaFilled(false);
         jPanel2.add(botaoCartas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 60, 70));
 
-        jPanel26.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 170, 230, 110));
+        jPanel26.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 240, 120));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/silvioo.jpg"))); // NOI18N
+        jPanel26.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 160, 130));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 0));
         jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));

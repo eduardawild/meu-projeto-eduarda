@@ -1,21 +1,26 @@
-package admin;
-    import java.util.Date;
+package jogo;
+    import dao.RankingDAO;
     import java.text.DateFormat;
-import java.text.ParseException;
+    import java.text.ParseException;
     import java.text.SimpleDateFormat;
     import java.util.ArrayList;
+    import java.util.Date;
     import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+    import java.util.logging.Level;
+    import java.util.logging.Logger;
     import javax.swing.table.DefaultTableModel;
     import modelo.Jogador;
     import modelo.Ranking;
+
 public class rankingListar extends javax.swing.JFrame {
 
     public rankingListar() throws ParseException {
         initComponents();
         List <Ranking> lista = new ArrayList<Ranking>();
-
+        RankingDAO dao = new RankingDAO();
+        lista = dao.listar();
+        
+        /*
         String datahora = "12-09-2014 01:10 PM";
         DateFormat formatado = new SimpleDateFormat("dd-MM-yyyy hh:mm aa");
         Date data = formatado.parse(datahora);
@@ -49,7 +54,7 @@ public class rankingListar extends javax.swing.JFrame {
         jogador.setLogin("Maicon");
         item.setJogador(jogador); 
         lista.add(item);
-        
+        */
         DefaultTableModel modelo = (DefaultTableModel)tabelaRanking.getModel();
         
         Object[] linha = new Object [modelo.getColumnCount()]; //tamanho do array
