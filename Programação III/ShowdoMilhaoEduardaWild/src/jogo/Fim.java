@@ -1,7 +1,10 @@
 package jogo;
 
 import dao.RankingDAO;
+import java.text.ParseException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Jogador;
 import modelo.JogoCompleto;
 import modelo.Ranking;
@@ -19,7 +22,8 @@ public class Fim extends javax.swing.JFrame {
         this.completo = completo;
     }
   
-    public Fim() {
+    public Fim() 
+    {
         initComponents();
     }
 
@@ -33,6 +37,7 @@ public class Fim extends javax.swing.JFrame {
         txtGanhoFinal = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        botaoRanking = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -70,6 +75,14 @@ public class Fim extends javax.swing.JFrame {
         jLabel3.setText("REAIS!!");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, -1, -1));
 
+        botaoRanking.setText(" Ranking");
+        botaoRanking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRankingActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botaoRanking, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 520));
 
         pack();
@@ -81,8 +94,24 @@ public class Fim extends javax.swing.JFrame {
      Ranking r = new Ranking();
      r.setData(new Date());
      r.setJogador(completo.getJogador());
+     r.setPontos(completo.getGanhos().intValue());
      dao.inserir(r);
     }//GEN-LAST:event_formWindowOpened
+
+    private void botaoRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRankingActionPerformed
+       
+        rankingListar tela;
+        try 
+        {
+            tela = new  rankingListar();
+            tela.setVisible(true);
+            this.setVisible(false);
+        } 
+        catch (ParseException ex) {
+            Logger.getLogger(Fim.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_botaoRankingActionPerformed
 
     public static void main(String args[]) {
         
@@ -117,6 +146,7 @@ public class Fim extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoRanking;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
