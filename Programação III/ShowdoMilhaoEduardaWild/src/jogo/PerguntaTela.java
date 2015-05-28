@@ -4,6 +4,7 @@ import Audio.Audio;
 import dao.PerguntaDAO;
 import java.util.List;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import modelo.Jogador;
 import modelo.JogoCompleto;
 import modelo.Pergunta;
@@ -27,6 +28,7 @@ public class PerguntaTela extends javax.swing.JFrame {
     List<Pergunta> perguntas; //pergunta do jogo
     Pergunta perguntaAtual; //pergunta que está sendo exibida no momento
     JogoCompleto completo;
+    PerguntaDAO dao = new PerguntaDAO();
     
     public PerguntaTela() {
         initComponents();
@@ -43,7 +45,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         bg1.add(radio1);
         bg1.add(radio2);
         bg1.add(radio3);
-        bg1.add(radio4);
+        bg1.add(radio4);       
     }
 
     @SuppressWarnings("unchecked")
@@ -109,6 +111,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         quantotem = new javax.swing.JLabel();
+        quantopular = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 255));
@@ -306,6 +309,11 @@ public class PerguntaTela extends javax.swing.JFrame {
 
         botaoPular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pular.jpg"))); // NOI18N
         botaoPular.setContentAreaFilled(false);
+        botaoPular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPularActionPerformed(evt);
+            }
+        });
         jPanel2.add(botaoPular, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 70, 70));
 
         botaoCartas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cartas.jpg"))); // NOI18N
@@ -546,6 +554,9 @@ public class PerguntaTela extends javax.swing.JFrame {
         quantotem.setText("jLabel1");
         jPanel26.add(quantotem, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
+        quantopular.setText("jLabel1");
+        jPanel26.add(quantopular, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
+
         getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 390));
 
         pack();
@@ -609,7 +620,7 @@ public class PerguntaTela extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPararActionPerformed
 
     private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
-        PerguntaDAO dao = new PerguntaDAO();
+        
         Boolean acertou = false;
         String certa = perguntaAtual.getCerta(); //A, B, C ou D
         
@@ -722,6 +733,51 @@ public class PerguntaTela extends javax.swing.JFrame {
         bg1.clearSelection();
     }//GEN-LAST:event_botaoConfirmarActionPerformed
 
+    private void botaoPularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPularActionPerformed
+        if (completo.getPular()==1)
+        {
+            JOptionPane.showMessageDialog(rootPane, "VOCÊ JÁ PULOU!");
+        }
+        else
+        {        
+            perguntas.remove(0);
+           
+            completo.setPular(1); 
+            
+            if (perguntas.isEmpty())
+            {
+                nivel++;
+                if (nivel == 3)
+                {
+                    Fim fim = new Fim();
+                    completo.setGanhos(1000000D);
+                    fim.setCompleto(completo);
+                    fim.setVisible(true);
+                    this.setVisible(false);
+                    return;
+                }
+                else
+                {           
+                    perguntas = dao.listarNivel(nivel);
+                }       
+            }
+            else
+            {
+            perguntaAtual = perguntas.get(0);
+        
+            //exibir na tela
+            lblPerg.setText(perguntaAtual.getEnunciado());
+            radio1.setText(perguntaAtual.getA());
+            radio2.setText(perguntaAtual.getB());
+            radio3.setText(perguntaAtual.getC());
+            radio4.setText(perguntaAtual.getD());
+             //limpa o grupo de botões
+            bg1.clearSelection();
+            }
+        }
+       
+    }//GEN-LAST:event_botaoPularActionPerformed
+
     public static void main(String args[]) {
        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -805,6 +861,7 @@ public class PerguntaTela extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblPerg;
+    private javax.swing.JLabel quantopular;
     private javax.swing.JLabel quantotem;
     private javax.swing.JRadioButton radio1;
     private javax.swing.JRadioButton radio2;

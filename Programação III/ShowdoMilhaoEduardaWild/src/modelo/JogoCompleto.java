@@ -13,9 +13,8 @@ public class JogoCompleto {
     public JogoCompleto() 
     {
         this.jogador = null;
-        this.pular = 1;
-        this.cartas = 1;
-        this.pular = 1;
+        this.pular = 0;
+        this.cartas = 0;
         this.ganhos = 0.0;
     }
 

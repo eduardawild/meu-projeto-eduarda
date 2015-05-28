@@ -58,7 +58,7 @@ public class RankingDAO {
                 //ranking.getJogador().setLogin(res.getString("login"));
                 
                 Jogador jog = new Jogador();
-                jog.setLogin(res.getString("id"));
+                jog.setLogin(res.getString("login"));
                 ranking.setJogador(jog);
                 
                 ranking.setPontos(res.getInt("pontos"));
