@@ -62,8 +62,8 @@ public class Fim extends javax.swing.JFrame {
         txtGanhoFinal.setBackground(new java.awt.Color(0, 0, 255));
         txtGanhoFinal.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         txtGanhoFinal.setForeground(new java.awt.Color(255, 0, 0));
-        txtGanhoFinal.setText("X");
-        jPanel1.add(txtGanhoFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 120, 50));
+        txtGanhoFinal.setText("0");
+        jPanel1.add(txtGanhoFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 240, 50));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
@@ -81,7 +81,7 @@ public class Fim extends javax.swing.JFrame {
                 botaoRankingActionPerformed(evt);
             }
         });
-        jPanel1.add(botaoRanking, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, -1, -1));
+        jPanel1.add(botaoRanking, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 520));
 
@@ -90,7 +90,7 @@ public class Fim extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
      txtGanhoFinal.setText(completo.getGanhos().toString()); 
-     
+     dao = new RankingDAO();
      Ranking r = new Ranking();
      r.setData(new Date());
      r.setJogador(completo.getJogador());

@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -18,7 +19,7 @@ public class RankingDAO {
     {
         Boolean retorno;
         
-        String sql = "INSERT INTO Ranking (login, pontos, data) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Ranking (login, pontos, data) VALUES (?, ?, ?)";
         
         PreparedStatement pst = Conexão.getPreparedStatement(sql);
         
@@ -26,7 +27,7 @@ public class RankingDAO {
         {
             pst.setString(1, ranking.getJogador().getLogin());
             pst.setDouble(2, ranking.getPontos());
-            pst.setDate(3, (Date) ranking.getData());
+            pst.setDate(3, new java.sql.Date(ranking.getData().getTime()));
             
             pst.executeUpdate();
             retorno = true;

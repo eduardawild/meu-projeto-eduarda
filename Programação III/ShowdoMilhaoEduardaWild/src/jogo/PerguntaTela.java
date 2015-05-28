@@ -192,7 +192,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 40));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 460, 40));
 
         jPanel24.setBackground(new java.awt.Color(255, 0, 0));
         jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -253,7 +253,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 40));
+        getContentPane().add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 460, 40));
 
         jPanel26.setBackground(new java.awt.Color(0, 0, 255));
         jPanel26.addMouseListener(new java.awt.event.MouseAdapter() {
