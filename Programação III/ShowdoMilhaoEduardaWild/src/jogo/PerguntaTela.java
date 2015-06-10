@@ -734,6 +734,7 @@ public class PerguntaTela extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoConfirmarActionPerformed
 
     private void botaoPularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPularActionPerformed
+        botaoPular.enable();
         if (completo.getPular()==1)
         {
             JOptionPane.showMessageDialog(rootPane, "VOCÊ JÁ PULOU!");

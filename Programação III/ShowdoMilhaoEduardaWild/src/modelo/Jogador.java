@@ -5,6 +5,7 @@ public class Jogador {
     private String login;
     private String senha;
     private String email;
+    private byte[] imagem;
 
     public String getLogin() {
         return login;
@@ -29,6 +30,12 @@ public class Jogador {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
+    }
 }

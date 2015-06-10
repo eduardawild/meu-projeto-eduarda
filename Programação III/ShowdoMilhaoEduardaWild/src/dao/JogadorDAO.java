@@ -17,7 +17,7 @@ public class JogadorDAO {
     {
         Boolean retorno;
         //Monta o sql de insert da tabela
-        String sql = "INSERT INTO jogador(login, senha, email)" + "VALUES (?, ?, ?)";
+        String sql = "INSERT INTO jogador(login, senha, email, imagem)" + "VALUES (?, ?, ?, ?)";
         
         //Prepara a execução do meu sql
         PreparedStatement pst = Conexão.getPreparedStatement(sql);
@@ -28,6 +28,7 @@ public class JogadorDAO {
             pst.setString(1, jogador.getLogin()); //esse 1 é a ordem dos parâmetros
             pst.setString(2, jogador.getSenha());
             pst.setString(3, jogador.getEmail());
+            pst.setBytes(4, jogador.getImagem());
             
             //executa o sql no banco de dados
             pst.executeUpdate();
@@ -59,6 +60,7 @@ public class JogadorDAO {
                 jogador.setLogin(res.getString("login"));
                 jogador.setSenha(res.getString("senha"));
                 jogador.setEmail(res.getString("email"));
+                jogador.setImagem(res.getBytes("imagem"));
                 lista.add(jogador);
             }
         }
@@ -98,7 +100,7 @@ public class JogadorDAO {
     {
         Boolean retorno;
         
-        String sql = "UPDATE JOGADOR SET SENHA = ?, EMAIL = ? WHERE LOGIN = ?";
+        String sql = "UPDATE JOGADOR SET SENHA = ?, EMAIL = ?, IMAGEM = ? WHERE LOGIN = ?";
         
         PreparedStatement pst = Conexão.getPreparedStatement(sql);
         
@@ -106,7 +108,8 @@ public class JogadorDAO {
         {
             pst.setString(1, jogador.getSenha());
             pst.setString(2, jogador.getEmail());
-            pst.setString(3, jogador.getLogin());
+            pst.setBytes(3, jogador.getImagem());
+            pst.setString(4, jogador.getLogin());
             
             pst.executeUpdate();
             retorno = true;
@@ -143,6 +146,7 @@ public class JogadorDAO {
                 retorno.setEmail(res.getString("email"));
                 retorno.setLogin(res.getString("login"));
                 retorno.setSenha(res.getString("senha"));
+                retorno.setImagem(res.getBytes("imagem"));
             }
         } 
         catch (Exception e) 
