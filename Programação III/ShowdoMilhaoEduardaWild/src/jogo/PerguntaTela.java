@@ -111,7 +111,6 @@ public class PerguntaTela extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         quantotem = new javax.swing.JLabel();
-        quantopular = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 255));
@@ -554,9 +553,6 @@ public class PerguntaTela extends javax.swing.JFrame {
         quantotem.setText("jLabel1");
         jPanel26.add(quantotem, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
-        quantopular.setText("jLabel1");
-        jPanel26.add(quantopular, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
-
         getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 390));
 
         pack();
@@ -741,8 +737,12 @@ public class PerguntaTela extends javax.swing.JFrame {
         }
         else
         {        
-            perguntas.remove(0);
+            //perguntas.remove(0);
            
+            Integer posicao = perguntas.size()-1;
+            
+            perguntas.get(posicao);
+            
             completo.setPular(1); 
             
             if (perguntas.isEmpty())
@@ -775,8 +775,7 @@ public class PerguntaTela extends javax.swing.JFrame {
              //limpa o grupo de botões
             bg1.clearSelection();
             }
-        }
-       
+        }      
     }//GEN-LAST:event_botaoPularActionPerformed
 
     public static void main(String args[]) {
@@ -862,7 +861,6 @@ public class PerguntaTela extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblPerg;
-    private javax.swing.JLabel quantopular;
     private javax.swing.JLabel quantotem;
     private javax.swing.JRadioButton radio1;
     private javax.swing.JRadioButton radio2;

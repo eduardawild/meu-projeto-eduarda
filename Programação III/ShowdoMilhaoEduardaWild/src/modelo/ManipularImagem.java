@@ -91,6 +91,9 @@ public class ManipularImagem {
     }
 
     public static byte[] getImgBytes(BufferedImage image) {
+        
+        if (image != null)
+        {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
             ImageIO.write(image, "JPEG", baos);
@@ -101,6 +104,11 @@ public class ManipularImagem {
         InputStream is = new ByteArrayInputStream(baos.toByteArray());
         
         return baos.toByteArray();
+        }
+        else
+        {
+            return null;
+        }
     }
     //Novo método para exibir imagem na tela
     //Recebe o label que queremos exibir E a imagem como array de bytes do banco

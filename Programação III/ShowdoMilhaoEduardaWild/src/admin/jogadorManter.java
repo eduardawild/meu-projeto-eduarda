@@ -429,6 +429,7 @@ public class jogadorManter extends javax.swing.JFrame {
             txtEmail.setText(elemento.getEmail());
             txtSenha.setText(elemento.getSenha());
             txtLogin.setText(elemento.getLogin());
+            ManipularImagem.exibiImagemLabel(elemento.getImagem(), lblFoto);
         }
     }//GEN-LAST:event_botaoPrimeiroActionPerformed
 
@@ -447,6 +448,7 @@ public class jogadorManter extends javax.swing.JFrame {
             txtEmail.setText(elemento.getEmail());
             txtSenha.setText(elemento.getSenha());
             txtLogin.setText(elemento.getLogin());
+            ManipularImagem.exibiImagemLabel(elemento.getImagem(), lblFoto);
         }  
         
         if (posicao == 0)
@@ -477,6 +479,7 @@ public class jogadorManter extends javax.swing.JFrame {
             txtEmail.setText(elemento.getEmail());
             txtSenha.setText(elemento.getSenha());
             txtLogin.setText(elemento.getLogin());
+            ManipularImagem.exibiImagemLabel(elemento.getImagem(), lblFoto);
         }
         
         if (lista.size() - 1 == posicao)
@@ -501,6 +504,7 @@ public class jogadorManter extends javax.swing.JFrame {
             txtEmail.setText(elemento.getEmail());
             txtSenha.setText(elemento.getSenha());
             txtLogin.setText(elemento.getLogin());
+            ManipularImagem.exibiImagemLabel(elemento.getImagem(), lblFoto);
         }
     }//GEN-LAST:event_botaoUltimoActionPerformed
 
