@@ -319,6 +319,11 @@ public class PerguntaTela extends javax.swing.JFrame {
 
         botaoCartas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/cartas.jpg"))); // NOI18N
         botaoCartas.setContentAreaFilled(false);
+        botaoCartas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCartasActionPerformed(evt);
+            }
+        });
         jPanel2.add(botaoCartas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 60, 70));
 
         jPanel26.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 240, 120));
@@ -720,7 +725,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 reserva = perguntas.get(1);
                 perguntas.remove(1);
             }
-              
+        
         }
     
         perguntaAtual = perguntas.get(0);
@@ -780,6 +785,22 @@ public class PerguntaTela extends javax.swing.JFrame {
             */         
         }      
     }//GEN-LAST:event_botaoPularActionPerformed
+
+    private void botaoCartasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCartasActionPerformed
+        botaoCartas.setEnabled(false);
+           
+        if (completo.getPular()==1)
+        {
+            JOptionPane.showMessageDialog(rootPane, "VOCÊ JÁ USOU AS CARTAS UMA VEZ!");
+        }
+        else
+        { 
+            completo.setCartas(1);
+            
+            Cartas tela = new Cartas();
+            tela.setVisible(true);
+        }
+    }//GEN-LAST:event_botaoCartasActionPerformed
 
     public static void main(String args[]) {
        
