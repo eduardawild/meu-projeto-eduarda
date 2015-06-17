@@ -133,7 +133,7 @@ public class PerguntaDAO {
     {
         List <Pergunta> lista = new ArrayList<Pergunta>();
         
-        String sql = "SELECT * FROM pergunta WHERE nivel = ? ORDER BY RANDOM() LIMIT 3";
+        String sql = "SELECT * FROM pergunta WHERE nivel = ? ORDER BY RANDOM() LIMIT 4";
         
         PreparedStatement pst = Conexão.getPreparedStatement(sql);
         

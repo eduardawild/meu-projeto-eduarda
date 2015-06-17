@@ -12,7 +12,7 @@ import modelo.Pergunta;
 public class PerguntaTela extends javax.swing.JFrame {
 
     private Jogador jogador;
-    private Double premio;
+    private Double premio = 0.0;
     private Integer nivel;
     private Double errou;
     ButtonGroup bg1;
@@ -27,13 +27,15 @@ public class PerguntaTela extends javax.swing.JFrame {
     
     List<Pergunta> perguntas; //pergunta do jogo
     Pergunta perguntaAtual; //pergunta que está sendo exibida no momento
+    Pergunta reserva;
     JogoCompleto completo;
     PerguntaDAO dao = new PerguntaDAO();
+    
     
     public PerguntaTela() {
         initComponents();
         nivel = 1;
-             
+        //completo.setGanhos(0.0);
         //Criar e Adicionar elementos no grupo,
 
         //assim somente será possível clicar em uma opção
@@ -564,6 +566,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         //Começar o jogo
         completo = new JogoCompleto();
         completo.setJogador(jogador);
+        completo.setGanhos(0.0);
         premio = 2500.00;
         
         txtErrar.setText(" 0 ");
@@ -581,6 +584,8 @@ public class PerguntaTela extends javax.swing.JFrame {
         perguntas = dao.listarNivel(nivel); //busca as perguntas do nível 1, que estão embaralhadas
         
         perguntaAtual = perguntas.get(0); //colocar a primeira que aparece no perguntaAtual
+        reserva = perguntas.get(1);
+        perguntas.remove(1);
         
         //exibir na tela
         lblPerg.setText(perguntaAtual.getEnunciado());
@@ -641,9 +646,7 @@ public class PerguntaTela extends javax.swing.JFrame {
             acertou = false;
         }
         
-        
-        
-        
+       
         if (nivel==1)
         {
             if (acertou == true)
@@ -711,9 +714,13 @@ public class PerguntaTela extends javax.swing.JFrame {
                 return;
             }
             else
-            {           
+            {
+                
                 perguntas = dao.listarNivel(nivel);
-            }       
+                reserva = perguntas.get(1);
+                perguntas.remove(1);
+            }
+              
         }
     
         perguntaAtual = perguntas.get(0);
@@ -730,21 +737,30 @@ public class PerguntaTela extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoConfirmarActionPerformed
 
     private void botaoPularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPularActionPerformed
-        botaoPular.enable();
+        botaoPular.setEnabled(false);
+        
         if (completo.getPular()==1)
         {
             JOptionPane.showMessageDialog(rootPane, "VOCÊ JÁ PULOU!");
         }
         else
         {        
-            //perguntas.remove(0);
+            perguntas.set(0, reserva);
            
-            Integer posicao = perguntas.size()-1;
-            
-            perguntas.get(posicao);
-            
-            completo.setPular(1); 
-            
+            completo.setPular(1);           
+                   
+            perguntaAtual = reserva;
+        
+            //exibir na tela
+            lblPerg.setText(perguntaAtual.getEnunciado());
+            radio1.setText(perguntaAtual.getA());
+            radio2.setText(perguntaAtual.getB());
+            radio3.setText(perguntaAtual.getC());
+            radio4.setText(perguntaAtual.getD());
+             //limpa o grupo de botões
+            bg1.clearSelection();
+           
+            /*
             if (perguntas.isEmpty())
             {
                 nivel++;
@@ -761,20 +777,7 @@ public class PerguntaTela extends javax.swing.JFrame {
                 {           
                     perguntas = dao.listarNivel(nivel);
                 }       
-            }
-            else
-            {
-            perguntaAtual = perguntas.get(0);
-        
-            //exibir na tela
-            lblPerg.setText(perguntaAtual.getEnunciado());
-            radio1.setText(perguntaAtual.getA());
-            radio2.setText(perguntaAtual.getB());
-            radio3.setText(perguntaAtual.getC());
-            radio4.setText(perguntaAtual.getD());
-             //limpa o grupo de botões
-            bg1.clearSelection();
-            }
+            */         
         }      
     }//GEN-LAST:event_botaoPularActionPerformed
 
