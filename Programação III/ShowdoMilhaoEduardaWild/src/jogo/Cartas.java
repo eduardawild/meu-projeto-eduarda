@@ -5,19 +5,12 @@ import javax.swing.JOptionPane;
 
 public class Cartas extends javax.swing.JFrame {
     
-    private static Integer elimina;
+    static Integer elimina;
 
-    public static Integer getElimina() {
-        return elimina;
-    }
-
-    public static void setElimina(Integer elimina) {
-        Cartas.elimina = elimina;
-    }
     
     public Cartas() {
         initComponents();  
-        elimina = 0;
+        //elimina = 0;
     }
 
     @SuppressWarnings("unchecked")
@@ -99,43 +92,39 @@ public class Cartas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void carta0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta0MouseClicked
-        
+        elimina = 0;
         carta0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/nenhuma.png")));
         JOptionPane.showMessageDialog(null, "NÃO ELIMINA ALTERNATIVAS!");
         carta1.setEnabled(false);
-        carta2.setEnabled(false);
+        carta2.setEnabled(false);   
         carta3.setEnabled(false);
-        elimina = 0;
     }//GEN-LAST:event_carta0MouseClicked
 
     private void carta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MouseClicked
-       
+        elimina = 1;
         carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/uma.png")));
         JOptionPane.showMessageDialog(null, "ELIMINA UMA ALTERNATIVA!");
         carta0.setEnabled(false);
         carta2.setEnabled(false);
-        carta3.setEnabled(false);
-        elimina = 1;
+        carta3.setEnabled(false);  
     }//GEN-LAST:event_carta1MouseClicked
 
     private void carta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta2MouseClicked
-        
+        elimina = 2;
         carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/duas.png")));
         JOptionPane.showMessageDialog(null, "ELIMINA DUAS ALTERNATIVAS!");
         carta0.setEnabled(false);
         carta1.setEnabled(false);
-        carta3.setEnabled(false);
-        elimina = 2;
+        carta3.setEnabled(false);  
     }//GEN-LAST:event_carta2MouseClicked
 
     private void carta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta3MouseClicked
-        
+        elimina = 3;
         carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tres.png")));
         JOptionPane.showMessageDialog(null, "ELIMINA TRÊS ALTERNATIVAS");
         carta0.setEnabled(false);
         carta1.setEnabled(false);
         carta2.setEnabled(false);
-        elimina = 3;
     }//GEN-LAST:event_carta3MouseClicked
 
     private void botaoFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFecharActionPerformed

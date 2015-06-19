@@ -18,9 +18,9 @@ public class PerguntaTela extends javax.swing.JFrame {
     private Double errou;
     ButtonGroup bg1;
     //private Integer sorteio;
-    private String letracerta;
+
     
-    private static Integer eliminadas=0;
+    static Integer eliminadas;
 
     public static Integer getEliminadas() {
         return eliminadas;
@@ -49,6 +49,8 @@ public class PerguntaTela extends javax.swing.JFrame {
         initComponents();
         nivel = 1;
        
+        eliminadas = 0;
+        
         //completo.setGanhos(0.0);
         //Criar e Adicionar elementos no grupo,
 
@@ -276,6 +278,11 @@ public class PerguntaTela extends javax.swing.JFrame {
         getContentPane().add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 460, 40));
 
         jPanel26.setBackground(new java.awt.Color(0, 0, 255));
+        jPanel26.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel26FocusGained(evt);
+            }
+        });
         jPanel26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel26MouseClicked(evt);
@@ -579,7 +586,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         txtEli.setText("jLabel1");
         jPanel26.add(txtEli, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
 
-        getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 390));
+        getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -757,6 +764,11 @@ public class PerguntaTela extends javax.swing.JFrame {
     
         perguntaAtual = perguntas.get(0);
         
+        radio1.setEnabled(true);
+        radio2.setEnabled(true);
+        radio3.setEnabled(true);
+        radio4.setEnabled(true);
+        
         //exibir na tela
         lblPerg.setText(perguntaAtual.getEnunciado());
         radio1.setText(perguntaAtual.getA());
@@ -826,26 +838,92 @@ public class PerguntaTela extends javax.swing.JFrame {
             
             Cartas tela = new Cartas();
             tela.setVisible(true);
-              
-//            sorteio = (int)(Math.random( )*5);
-//            
-//            if (Cartas.getElimina()==1)
-//            {          
-//                letracerta = perguntaAtual.getCerta();
-//                if (letracerta.equalsIgnoreCase("a"))
-//                {
-//                    if (sorteio == 1)
-//                    {
-//                        radio1.setEnabled(false);
-//                    }
-//                    else if (sorteio == 2)
-//                    {
-//                        
-//                    }
-//                }
-//            }
         }
     }//GEN-LAST:event_botaoCartasActionPerformed
+
+    private void jPanel26FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel26FocusGained
+     
+        Integer elimina;
+        elimina = PerguntaTela.getEliminadas();
+        txtEli.setText(elimina.toString());
+        
+        if (elimina == 0)
+        {
+           
+        }
+        else if (elimina == 1)
+        {
+            if (perguntaAtual.getCerta().equalsIgnoreCase("a"))
+            {
+                radio3.setEnabled(false);
+            }
+            else if (perguntaAtual.getCerta().equalsIgnoreCase("b"))
+            {
+                radio4.setEnabled(false);
+            }
+            else if (perguntaAtual.getCerta().equalsIgnoreCase("c"))
+            {
+                radio1.setEnabled(false);
+            }
+            else if (perguntaAtual.getCerta().equalsIgnoreCase("d"))
+            {
+                radio2.setEnabled(false);
+            }
+        }
+        else if (elimina == 2)
+        {
+            if (perguntaAtual.getCerta().equalsIgnoreCase("a"))
+            {
+                radio2.setEnabled(false);
+                radio3.setEnabled(false);
+            }
+            else if (perguntaAtual.getCerta().equalsIgnoreCase("b"))
+            {
+                radio1.setEnabled(false);
+                radio4.setEnabled(false);
+            }
+            else if (perguntaAtual.getCerta().equalsIgnoreCase("c"))
+            {
+                radio2.setEnabled(false);
+                radio4.setEnabled(false);
+            }
+            else if (perguntaAtual.getCerta().equalsIgnoreCase("d"))
+            {
+                radio1.setEnabled(false);
+                radio2.setEnabled(false);
+            }
+        }
+        else if (elimina == 3)
+        {
+            if (perguntaAtual.getCerta().equalsIgnoreCase("a"))
+            {
+                radio2.setEnabled(false);
+                radio3.setEnabled(false);
+                radio4.setEnabled(false);
+            } 
+            else if (perguntaAtual.getCerta().equalsIgnoreCase("b"))
+            {
+                radio1.setEnabled(false);
+                radio3.setEnabled(false);
+                radio4.setEnabled(false);
+            }
+            else if (perguntaAtual.getCerta().equalsIgnoreCase("c"))
+            {
+                radio1.setEnabled(false);
+                radio2.setEnabled(false);
+                radio4.setEnabled(false);
+            }
+            else if (perguntaAtual.getCerta().equalsIgnoreCase("d"))
+            {
+                radio1.setEnabled(false);
+                radio2.setEnabled(false);
+                radio3.setEnabled(false);
+            }
+        }
+        
+        elimina = 0;
+        PerguntaTela.setEliminadas(elimina);
+    }//GEN-LAST:event_jPanel26FocusGained
 
     public static void main(String args[]) {
        
