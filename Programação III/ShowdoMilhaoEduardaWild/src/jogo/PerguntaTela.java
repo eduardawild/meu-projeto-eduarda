@@ -4,6 +4,7 @@ import Audio.Audio;
 import dao.PerguntaDAO;
 import java.util.List;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Jogador;
 import modelo.JogoCompleto;
@@ -16,6 +17,18 @@ public class PerguntaTela extends javax.swing.JFrame {
     private Integer nivel;
     private Double errou;
     ButtonGroup bg1;
+    //private Integer sorteio;
+    private String letracerta;
+    
+    private static Integer eliminadas=0;
+
+    public static Integer getEliminadas() {
+        return eliminadas;
+    }
+
+    public static void setEliminadas(Integer eliminadas) {
+        PerguntaTela.eliminadas = eliminadas;
+    }
     
     public Jogador getJogador() {
         return jogador;
@@ -35,6 +48,7 @@ public class PerguntaTela extends javax.swing.JFrame {
     public PerguntaTela() {
         initComponents();
         nivel = 1;
+       
         //completo.setGanhos(0.0);
         //Criar e Adicionar elementos no grupo,
 
@@ -73,7 +87,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         botaoPular = new javax.swing.JButton();
         botaoCartas = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        lblFoto = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         txtAcertar = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -113,9 +127,11 @@ public class PerguntaTela extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         quantotem = new javax.swing.JLabel();
+        txtEli = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 255));
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -328,8 +344,8 @@ public class PerguntaTela extends javax.swing.JFrame {
 
         jPanel26.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 240, 120));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/silvioo.jpg"))); // NOI18N
-        jPanel26.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 160, 130));
+        lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/silvioo.jpg"))); // NOI18N
+        jPanel26.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 160, 130));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 0));
         jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
@@ -560,14 +576,25 @@ public class PerguntaTela extends javax.swing.JFrame {
         quantotem.setText("jLabel1");
         jPanel26.add(quantotem, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
-        getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 390));
+        txtEli.setText("jLabel1");
+        jPanel26.add(txtEli, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
+
+        getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         lblNome.setText(jogador.getLogin());
-        
+        if(jogador.getImagem()==null)
+        {
+            lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/perfil.jpg")));
+        }
+        else
+        {
+            lblFoto.setIcon(new ImageIcon(jogador.getImagem()));
+        }
+              
         //Começar o jogo
         completo = new JogoCompleto();
         completo.setJogador(jogador);
@@ -789,7 +816,7 @@ public class PerguntaTela extends javax.swing.JFrame {
     private void botaoCartasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCartasActionPerformed
         botaoCartas.setEnabled(false);
            
-        if (completo.getPular()==1)
+        if (completo.getCartas()==1)
         {
             JOptionPane.showMessageDialog(rootPane, "VOCÊ JÁ USOU AS CARTAS UMA VEZ!");
         }
@@ -799,6 +826,24 @@ public class PerguntaTela extends javax.swing.JFrame {
             
             Cartas tela = new Cartas();
             tela.setVisible(true);
+              
+//            sorteio = (int)(Math.random( )*5);
+//            
+//            if (Cartas.getElimina()==1)
+//            {          
+//                letracerta = perguntaAtual.getCerta();
+//                if (letracerta.equalsIgnoreCase("a"))
+//                {
+//                    if (sorteio == 1)
+//                    {
+//                        radio1.setEnabled(false);
+//                    }
+//                    else if (sorteio == 2)
+//                    {
+//                        
+//                    }
+//                }
+//            }
         }
     }//GEN-LAST:event_botaoCartasActionPerformed
 
@@ -855,7 +900,6 @@ public class PerguntaTela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -883,6 +927,7 @@ public class PerguntaTela extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel lblFoto;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblPerg;
     private javax.swing.JLabel quantotem;
@@ -891,6 +936,7 @@ public class PerguntaTela extends javax.swing.JFrame {
     private javax.swing.JRadioButton radio3;
     private javax.swing.JRadioButton radio4;
     private javax.swing.JLabel txtAcertar;
+    private javax.swing.JLabel txtEli;
     private javax.swing.JLabel txtErrar;
     private javax.swing.JLabel txtParar;
     // End of variables declaration//GEN-END:variables

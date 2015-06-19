@@ -5,9 +5,19 @@ import javax.swing.JOptionPane;
 
 public class Cartas extends javax.swing.JFrame {
     
+    private static Integer elimina;
+
+    public static Integer getElimina() {
+        return elimina;
+    }
+
+    public static void setElimina(Integer elimina) {
+        Cartas.elimina = elimina;
+    }
+    
     public Cartas() {
-        initComponents();
-        
+        initComponents();  
+        elimina = 0;
     }
 
     @SuppressWarnings("unchecked")
@@ -20,6 +30,7 @@ public class Cartas extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         carta3 = new javax.swing.JLabel();
         carta1 = new javax.swing.JLabel();
+        botaoFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,15 +76,23 @@ public class Cartas extends javax.swing.JFrame {
         });
         jPanel1.add(carta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
 
+        botaoFechar.setText("Fechar");
+        botaoFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoFecharActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botaoFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 769, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
         );
 
         pack();
@@ -83,33 +102,51 @@ public class Cartas extends javax.swing.JFrame {
         
         carta0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/nenhuma.png")));
         JOptionPane.showMessageDialog(null, "NÃO ELIMINA ALTERNATIVAS!");
-        
+        carta1.setEnabled(false);
+        carta2.setEnabled(false);
+        carta3.setEnabled(false);
+        elimina = 0;
     }//GEN-LAST:event_carta0MouseClicked
 
     private void carta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MouseClicked
        
         carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/uma.png")));
         JOptionPane.showMessageDialog(null, "ELIMINA UMA ALTERNATIVA!");
-        
+        carta0.setEnabled(false);
+        carta2.setEnabled(false);
+        carta3.setEnabled(false);
+        elimina = 1;
     }//GEN-LAST:event_carta1MouseClicked
 
     private void carta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta2MouseClicked
         
         carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/duas.png")));
         JOptionPane.showMessageDialog(null, "ELIMINA DUAS ALTERNATIVAS!");
+        carta0.setEnabled(false);
+        carta1.setEnabled(false);
+        carta3.setEnabled(false);
+        elimina = 2;
     }//GEN-LAST:event_carta2MouseClicked
 
     private void carta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta3MouseClicked
         
         carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tres.png")));
         JOptionPane.showMessageDialog(null, "ELIMINA TRÊS ALTERNATIVAS");
+        carta0.setEnabled(false);
+        carta1.setEnabled(false);
+        carta2.setEnabled(false);
+        elimina = 3;
     }//GEN-LAST:event_carta3MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void botaoFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFecharActionPerformed
+        
+        PerguntaTela.setEliminadas(elimina);
+        this.dispose();
+    }//GEN-LAST:event_botaoFecharActionPerformed
+
+  
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+       
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -132,7 +169,6 @@ public class Cartas extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Cartas().setVisible(true);
@@ -141,6 +177,7 @@ public class Cartas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoFechar;
     private javax.swing.JLabel carta0;
     private javax.swing.JLabel carta1;
     private javax.swing.JLabel carta2;
