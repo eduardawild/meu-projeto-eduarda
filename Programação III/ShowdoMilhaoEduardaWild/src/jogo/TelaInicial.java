@@ -49,6 +49,13 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("Login:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 147, -1, 50));
+
+        txtLogin.setText("duda");
+        txtLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLoginActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 162, -1));
 
         jButton1.setText("Ir para o jogo");
@@ -89,6 +96,8 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
         jPanel1.add(esqueciSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 285, -1, -1));
+
+        txtSenha.setText("12345");
         jPanel1.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 160, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 380));
@@ -140,6 +149,10 @@ public class TelaInicial extends javax.swing.JFrame {
         tela.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
     }//GEN-LAST:event_botaoCadastroActionPerformed
+
+    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLoginActionPerformed
 
     /**
      * @param args the command line arguments
