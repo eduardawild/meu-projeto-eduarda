@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 public class Cartas extends javax.swing.JFrame {
     
     static Integer elimina;
-
+    static Integer sorteio;
     
     public Cartas() {
         initComponents();  
@@ -24,6 +24,7 @@ public class Cartas extends javax.swing.JFrame {
         carta3 = new javax.swing.JLabel();
         carta1 = new javax.swing.JLabel();
         botaoFechar = new javax.swing.JButton();
+        txtEliminacao = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,7 +76,12 @@ public class Cartas extends javax.swing.JFrame {
                 botaoFecharActionPerformed(evt);
             }
         });
-        jPanel1.add(botaoFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
+        jPanel1.add(botaoFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, -1, -1));
+
+        txtEliminacao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtEliminacao.setForeground(new java.awt.Color(255, 0, 0));
+        txtEliminacao.setText("...");
+        jPanel1.add(txtEliminacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,46 +91,138 @@ public class Cartas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void carta0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta0MouseClicked
-        elimina = 0;
-        carta0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/nenhuma.png")));
-        JOptionPane.showMessageDialog(null, "NÃO ELIMINA ALTERNATIVAS!");
+        sorteio = 0+(int)(Math.random()*3);
+        
+        if (sorteio == 0)
+        {
+            carta0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/nenhuma.png")));
+            txtEliminacao.setText("NÃO ELIMINA ALTERNATIVAS!");
+        }
+        else if (sorteio == 1)
+        {
+            carta0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/uma.png")));
+            txtEliminacao.setText("ELIMINA UMA ALTERNATIVA!");
+        }
+        else if (sorteio == 2)
+        {
+            carta0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/duas.png")));
+            txtEliminacao.setText("ELIMINA DUAS ALTERNATIVAS!");
+        }
+        else 
+        {
+            carta0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tres.png")));
+            txtEliminacao.setText("ELIMINA TRÊS ALTERNATIVAS!");
+        }
+        
+        elimina = sorteio;
+        
+        carta0.setEnabled(false);
         carta1.setEnabled(false);
         carta2.setEnabled(false);   
         carta3.setEnabled(false);
     }//GEN-LAST:event_carta0MouseClicked
 
     private void carta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MouseClicked
-        elimina = 1;
-        carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/uma.png")));
-        JOptionPane.showMessageDialog(null, "ELIMINA UMA ALTERNATIVA!");
+        sorteio = 0+(int)(Math.random()*3);
+        
+        if (sorteio == 0)
+        {
+            carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/nenhuma.png")));
+            txtEliminacao.setText("NÃO ELIMINA ALTERNATIVAS!");
+        }
+        else if (sorteio == 1)
+        {
+            carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/uma.png")));
+            txtEliminacao.setText("ELIMINA UMA ALTERNATIVA!");
+        }
+        else if (sorteio == 2)
+        {
+            carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/duas.png")));
+            txtEliminacao.setText("ELIMINA DUAS ALTERNATIVAS!");
+        }
+        else 
+        {
+            carta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tres.png")));
+            txtEliminacao.setText("ELIMINA TRÊS ALTERNATIVAS!");
+        }
+        
+        elimina = sorteio;
+        
         carta0.setEnabled(false);
-        carta2.setEnabled(false);
-        carta3.setEnabled(false);  
+        carta1.setEnabled(false);
+        carta2.setEnabled(false);   
+        carta3.setEnabled(false);
     }//GEN-LAST:event_carta1MouseClicked
 
     private void carta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta2MouseClicked
-        elimina = 2;
-        carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/duas.png")));
-        JOptionPane.showMessageDialog(null, "ELIMINA DUAS ALTERNATIVAS!");
+        sorteio = 0+(int)(Math.random()*3);
+        
+        if (sorteio == 0)
+        {
+            carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/nenhuma.png")));
+            txtEliminacao.setText("NÃO ELIMINA ALTERNATIVAS!");
+        }
+        else if (sorteio == 1)
+        {
+            carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/uma.png")));
+            txtEliminacao.setText("ELIMINA UMA ALTERNATIVA!");
+        }
+        else if (sorteio == 2)
+        {
+            carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/duas.png")));
+            txtEliminacao.setText("ELIMINA DUAS ALTERNATIVAS!");
+        }
+        else 
+        {
+            carta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tres.png")));
+            txtEliminacao.setText("ELIMINA TRÊS ALTERNATIVAS!");
+        }
+        
+        elimina = sorteio;
+        
         carta0.setEnabled(false);
         carta1.setEnabled(false);
-        carta3.setEnabled(false);  
+        carta2.setEnabled(false);   
+        carta3.setEnabled(false);
     }//GEN-LAST:event_carta2MouseClicked
 
     private void carta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta3MouseClicked
-        elimina = 3;
-        carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tres.png")));
-        JOptionPane.showMessageDialog(null, "ELIMINA TRÊS ALTERNATIVAS");
+        sorteio = 0+(int)(Math.random()*3);
+        
+        if (sorteio == 0)
+        {
+            carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/nenhuma.png")));
+            txtEliminacao.setText("NÃO ELIMINA ALTERNATIVAS!");
+        }
+        else if (sorteio == 1)
+        {
+            carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/uma.png")));
+            txtEliminacao.setText("ELIMINA UMA ALTERNATIVA!");
+        }
+        else if (sorteio == 2)
+        {
+            carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/duas.png")));
+            txtEliminacao.setText("ELIMINA DUAS ALTERNATIVAS!");
+        }
+        else 
+        {
+            carta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/tres.png")));
+            txtEliminacao.setText("ELIMINA TRÊS ALTERNATIVAS!");
+        }
+        
+        elimina = sorteio;
+        
         carta0.setEnabled(false);
         carta1.setEnabled(false);
-        carta2.setEnabled(false);
+        carta2.setEnabled(false);   
+        carta3.setEnabled(false);
     }//GEN-LAST:event_carta3MouseClicked
 
     private void botaoFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFecharActionPerformed
@@ -173,5 +271,6 @@ public class Cartas extends javax.swing.JFrame {
     private javax.swing.JLabel carta3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel txtEliminacao;
     // End of variables declaration//GEN-END:variables
 }

@@ -600,7 +600,13 @@ public class PerguntaTela extends javax.swing.JFrame {
 
     private void botaoConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarActionPerformed
         
-        Boolean acertou = false;
+        if (radio1.isSelected()==false && radio2.isSelected()==false && radio3.isSelected()==false && radio4.isSelected()==false)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Selecione uma alternativa!");
+        }
+        else
+        {
+            Boolean acertou = false;
         String certa = perguntaAtual.getCerta(); //A, B, C ou D
         
         if (certa.equalsIgnoreCase("A") && radio1.isSelected())
@@ -713,6 +719,7 @@ public class PerguntaTela extends javax.swing.JFrame {
         
         //limpa o grupo de botões
         bg1.clearSelection();
+        }   
     }//GEN-LAST:event_botaoConfirmarActionPerformed
 
     private void botaoPularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPularActionPerformed
