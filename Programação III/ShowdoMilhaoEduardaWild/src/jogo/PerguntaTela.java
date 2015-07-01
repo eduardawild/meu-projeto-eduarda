@@ -43,7 +43,7 @@ public class PerguntaTela extends javax.swing.JFrame {
     Pergunta reserva;
     JogoCompleto completo;
     PerguntaDAO dao = new PerguntaDAO();
-    
+    Audio audio = new Audio();
     
     public PerguntaTela() {
         initComponents();
@@ -128,6 +128,8 @@ public class PerguntaTela extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        botaoTocaAudio = new javax.swing.JButton();
+        botaoParaAudio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 255));
@@ -525,6 +527,28 @@ public class PerguntaTela extends javax.swing.JFrame {
         jLabel9.setText("ERRAR");
         jPanel26.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, -1, -1));
 
+        botaoTocaAudio.setBackground(new java.awt.Color(51, 102, 255));
+        botaoTocaAudio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botaoTocaAudio.setForeground(new java.awt.Color(255, 255, 255));
+        botaoTocaAudio.setText("Tocar Áudio");
+        botaoTocaAudio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoTocaAudioActionPerformed(evt);
+            }
+        });
+        jPanel26.add(botaoTocaAudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
+
+        botaoParaAudio.setBackground(new java.awt.Color(51, 102, 255));
+        botaoParaAudio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        botaoParaAudio.setForeground(new java.awt.Color(255, 255, 255));
+        botaoParaAudio.setText("Parar Áudio");
+        botaoParaAudio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoParaAudioActionPerformed(evt);
+            }
+        });
+        jPanel26.add(botaoParaAudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+
         getContentPane().add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 390));
 
         pack();
@@ -551,11 +575,11 @@ public class PerguntaTela extends javax.swing.JFrame {
         txtParar.setText(" 0 ");
         txtAcertar.setText(premio.toString());
         
-        Audio audio = new Audio();
+        
         //para tocar a música
         audio.tocar("abertura.wav");
         //quando quisermos para o som
-        audio.parar();
+        
         
         nivel = 1;
         PerguntaDAO dao = new PerguntaDAO();
@@ -612,18 +636,24 @@ public class PerguntaTela extends javax.swing.JFrame {
         if (certa.equalsIgnoreCase("A") && radio1.isSelected())
         { 
             acertou = true;
+            audio.tocar("certa.wav");
         }
         else if (certa.equalsIgnoreCase("B") && radio2.isSelected())
         {
             acertou = true;
+            audio.tocar("certa.wav");
+
         }
         else if (certa.equalsIgnoreCase("C") && radio3.isSelected())
         {
-            acertou = true;       
+            acertou = true;  
+            audio.tocar("certa.wav");
+
         }
         else if (certa.equalsIgnoreCase("D") && radio4.isSelected())
         {
             acertou = true;
+            audio.tocar("certa.wav");
         }
         else
         {
@@ -872,6 +902,14 @@ public class PerguntaTela extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowGainedFocus
 
+    private void botaoTocaAudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoTocaAudioActionPerformed
+        audio.tocar("abertura.wav");
+    }//GEN-LAST:event_botaoTocaAudioActionPerformed
+
+    private void botaoParaAudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoParaAudioActionPerformed
+        audio.parar();
+    }//GEN-LAST:event_botaoParaAudioActionPerformed
+
     public static void main(String args[]) {
        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -906,8 +944,10 @@ public class PerguntaTela extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCartas;
     private javax.swing.JButton botaoConfirmar;
+    private javax.swing.JButton botaoParaAudio;
     private javax.swing.JButton botaoParar;
     private javax.swing.JButton botaoPular;
+    private javax.swing.JButton botaoTocaAudio;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

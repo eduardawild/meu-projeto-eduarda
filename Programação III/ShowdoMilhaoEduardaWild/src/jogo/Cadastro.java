@@ -30,10 +30,11 @@ public class Cadastro extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtLogin = new javax.swing.JTextField();
         botaoCadastrar = new javax.swing.JButton();
+        labelFoto = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
         txtSenha2 = new javax.swing.JPasswordField();
-        labelFoto = new javax.swing.JLabel();
         botaoImagem = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
@@ -88,11 +89,12 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 110, 30));
-        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 230, 30));
-        getContentPane().add(txtSenha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 230, 30));
 
+        labelFoto.setBackground(new java.awt.Color(255, 255, 255));
         labelFoto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(labelFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 80, 200, 200));
+        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 230, 30));
+        getContentPane().add(txtSenha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 230, 30));
 
         botaoImagem.setText("Selecionar Imagem");
         botaoImagem.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +103,9 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botaoImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 255));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -211,6 +216,7 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelFoto;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtLogin;
